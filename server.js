@@ -22,14 +22,10 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(3030, () => console.log('Example app listening on port 3030!'))
 
 //uload single file
-app.post('/api/uploadFile',upload.single('img'), (req,res)=>{
-    
-    res.send(console.log(req))
-     // upload(req,res,(err)=> {
-     //     if(err){
-     //         res.send(console.log(err))
-     //     }else{
-     //         console.log(req.file)
-     //     }
-     // })
+app.post('/api/uploadSingleFile', upload.single('img'), (req,res)=>{  
+    res.send(console.log("single upload says : ",req)) 
+ })
+ //upload multiple file 
+ app.post('/api/uploadMultipleFile', upload.array('img', 12), (req,res)=>{
+     res.send(console.log(req))
  })
