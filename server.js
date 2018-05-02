@@ -1,10 +1,12 @@
 const express = require('express')
 const cors = require('cors')
 const multer  = require('multer')
+const mongoose = require('mongoose')
 
 // used module
 const app = express()
 app.use(cors())
+const db = mongoose.connect('mongodb://206.189.41.75:27017/finalproject');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
