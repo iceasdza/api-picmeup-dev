@@ -60,3 +60,35 @@ app.post('/api/uploadSingleFile', upload.single('img'), (req,res)=>{
         res.json(places)
     })
 })
+
+//getdata all
+app.get('/api/GetPlaceInfo',(req,res)=>{
+    Places.getPlaceInfo((err,Places)=>{
+        if(err){
+            throw err
+        }
+        res.json(Places)
+    })
+})
+
+//get data from ID
+app.get('/api/getPlaceInfoFromId/:_id',(req,res)=>{
+    const id = req.params._id
+    Places.getPlaceInfoFromID(id,(err,Places)=>{
+        if(err){
+            throw err
+        }
+        res.json(Places)
+    })
+})
+
+//delete data form ID
+app.delete('/api/deletePlaceDataFromId/:_id',(req,res)=>{
+    const id = req.params._id
+    Places.DeletePlaceFromId(id,(err)=>{
+        if(err){
+            throw err
+        }
+        res.send("ID : "+id+" removed!")
+    })
+})
