@@ -92,3 +92,15 @@ app.delete('/api/deletePlaceDataFromId/:_id',(req,res)=>{
         res.send("ID : "+id+" removed!")
     })
 })
+
+//update place from ID
+app.put('/api/UpdatePlaceFromId/:_id',(req,res)=>{
+    const id = req.params._id;
+    const data = req.body;
+    Places.updatePlace(id,data,(err=>{
+        if(err){
+            throw err
+        }
+        res.json(data)
+    }))
+})
