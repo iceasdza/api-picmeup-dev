@@ -3,6 +3,7 @@ const cors = require('cors')
 const multer  = require('multer')
 const mongoose = require('mongoose')
 const Places = require('./model/places')
+const Events = require('./model/event')
 const bodyParser = require('body-parser')
 const fs = require('fs')
 
@@ -49,8 +50,8 @@ app.post('/api/uploadSingleFile', upload.single('img'), (req,res)=>{
  })
 
 
-
- app.post('/api/testData',(req,res) => {
+//addplace
+ app.post('/api/addplace',(req,res) => {
     console.log(req.body)
     const places = req.body
     Places.addPlace(places,(err,Places)=>{
@@ -98,6 +99,97 @@ app.put('/api/UpdatePlaceFromId/:_id',(req,res)=>{
     const id = req.params._id;
     const data = req.body;
     Places.updatePlace(id,data,(err=>{
+        if(err){
+            throw err
+        }
+        res.json(data)
+    }))
+})
+
+
+
+
+//Event
+
+const eventStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, './static/images/events')
+    }
+    ,
+    filename: (req, file, cb) => {
+      cb(null,file.originalname)
+    }
+});
+const eventUpload = multer({storage: eventStorage});
+
+
+//upload single file
+app.post('/api/uploadEventSingleFile', eventUpload.single('img'), (req,res)=>{
+    res.send(console.log("single upload says : ",req)) 
+ })
+ //upload multiple file 
+ app.post('/api/uploadEventMultipleFile', eventUpload.array('img', 12), (req,res)=>{
+     res.send(console.log("multiple upload says : ",req))
+ })
+//delete event file
+ app.get('/api/deleteEventImage/:_id',(req,res)=>{
+    const id = req.params._id;
+     res.send(console.log(id))
+    fs.unlink("static/images/events/"+id,function (err){
+        if(err){
+            throw err
+            res.send("can")
+        }
+    })
+ })
+
+//add event
+ app.post('/api/addevent',(req,res) => {
+    console.log(req.body)
+    const events = req.body
+    Events.addEvent(events,(err,Events)=>{
+        if(err){
+            throw err
+        }
+        res.json(events)
+    })
+})
+//get all event
+app.get('/api/GetEventInfo',(req,res)=>{
+    Events.getEventInfo((err,Events)=>{
+        if(err){
+            throw err
+        }
+        res.json(Events)
+    })
+})
+//get event from ID
+app.get('/api/getEventInfoFromId/:_id',(req,res)=>{
+    const id = req.params._id
+    Events.getEventInfoFromId(id,(err,Events)=>{
+        if(err){
+            throw err
+        }
+        res.json(Events)
+    })
+})
+
+//delete event from id 
+app.delete('/api/deleteEventDataFromId/:_id',(req,res)=>{
+    const id = req.params._id
+    Events.DeleteEventFromId(id,(err)=>{
+        if(err){
+            throw err
+        }
+        res.send("ID : "+id+" removed!")
+    })
+})
+
+//edit event from id 
+app.put('/api/UpdateEventFromId/:_id',(req,res)=>{
+    const id = req.params._id;
+    const data = req.body;
+    Events.updateEvent(id,data,(err=>{
         if(err){
             throw err
         }
