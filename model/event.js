@@ -43,6 +43,9 @@ const Event = mongoose.Schema({
     editor:{
         type:String
     },
+    FileName:{
+        type:Array
+    },
     edit_date:{       
         type:String
     },
@@ -83,6 +86,7 @@ module.exports.updateEvent = (id,data,option,callback) =>{
         fee : data.fee,
         carParking : data.carParking,
         FileList : data.FileList,
+        FileName : data.FileName,
         days : data.days,
         tags : data.tags,
         PlaceId:data.PlaceId,

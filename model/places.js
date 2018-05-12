@@ -10,6 +10,9 @@ const Place = mongoose.Schema({
     FileList:{
         type:Array
     },
+    FileName:{
+        type:Array
+    },
     tel:{
         type:String
     },

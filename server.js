@@ -13,14 +13,14 @@ app.use(cors())
 const db = mongoose.connect('mongodb://206.189.41.75:27017/finalproject')
 app.use(bodyParser.json())
 app.use(express.static('static'))
-
+var today = new Date()
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, './static/images/places')
     }
     ,
     filename: (req, file, cb) => {
-      cb(null,file.originalname)
+      cb(null,today.getDay()+today.getMonth()+today.getFullYear()+today.getHours().toString()+"-"+file.originalname)
     }
 });
 const upload = multer({storage: storage});
@@ -44,7 +44,6 @@ app.post('/api/uploadSingleFile', upload.single('img'), (req,res)=>{
     fs.unlink("static/images/places/"+id,function (err){
         if(err){
             throw err
-            res.send("can")
         }
     })
  })
@@ -84,7 +83,17 @@ app.get('/api/getPlaceInfoFromId/:_id',(req,res)=>{
 })
 
 //delete data form ID
-app.delete('/api/deletePlaceDataFromId/:_id',(req,res)=>{
+app.post('/api/deletePlaceDataFromId/:_id',(req,res)=>{
+    const filesName = req.body.FileName
+    console.log(filesName)
+    filesName.map(data=>{
+        fs.unlink("static/images/places/"+data,function (err){
+            if(err){
+                throw err
+                res.send("can")
+            }
+        })
+    })
     const id = req.params._id
     Places.DeletePlaceFromId(id,(err)=>{
         if(err){
@@ -117,7 +126,7 @@ const eventStorage = multer.diskStorage({
     }
     ,
     filename: (req, file, cb) => {
-      cb(null,file.originalname)
+      cb(null,today.getDay()+today.getMonth()+today.getFullYear()+today.getHours().toString()+"-"+file.originalname)
     }
 });
 const eventUpload = multer({storage: eventStorage});
@@ -175,7 +184,17 @@ app.get('/api/getEventInfoFromId/:_id',(req,res)=>{
 })
 
 //delete event from id 
-app.delete('/api/deleteEventDataFromId/:_id',(req,res)=>{
+app.post('/api/deleteEventDataFromId/:_id',(req,res)=>{
+    const filesName = req.body.FileName
+    console.log(filesName)
+    filesName.map(data=>{
+        fs.unlink("static/images/events/"+data,function (err){
+            if(err){
+                throw err
+                res.send("can")
+            }
+        })
+    })
     const id = req.params._id
     Events.DeleteEventFromId(id,(err)=>{
         if(err){
