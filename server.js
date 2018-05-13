@@ -10,6 +10,7 @@ const fs = require('fs')
 // used module
 const app = express()
 app.use(cors())
+
 const db = mongoose.connect('mongodb://206.189.41.75:27017/finalproject')
 app.use(bodyParser.json())
 app.use(express.static('static'))
@@ -63,6 +64,9 @@ app.post('/api/uploadSingleFile', upload.single('img'), (req,res)=>{
 
 //getdata all
 app.get('/api/GetPlaceInfo',(req,res)=>{
+    let ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+    console.log(ip)
+
     Places.getPlaceInfo((err,Places)=>{
         if(err){
             throw err
