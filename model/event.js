@@ -49,6 +49,9 @@ const Event = mongoose.Schema({
     edit_date:{       
         type:String
     },
+    IP:{
+        type:String
+    },
     create_date:{
         type:Date,
         default: Date.now

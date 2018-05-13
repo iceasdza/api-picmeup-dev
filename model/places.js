@@ -13,6 +13,9 @@ const Place = mongoose.Schema({
     FileName:{
         type:Array
     },
+    IP:{
+        type:String
+    },
     tel:{
         type:String
     },
@@ -88,7 +91,7 @@ module.exports.updatePlace = (id,data,option,callback) =>{
         days : data.days,
         tags : data.tags,
         editor: data.editor,
-        edit_date : data.edit_date
+        edit_date : data.edit_date,
     }
 
     Places.findOneAndUpdate(query,updatedData,option,callback)

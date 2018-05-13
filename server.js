@@ -52,8 +52,9 @@ app.post('/api/uploadSingleFile', upload.single('img'), (req,res)=>{
 
 //addplace
  app.post('/api/addplace',(req,res) => {
-    console.log(req.body)
+    let ip = req.connection.remoteAddress.toString();
     const places = req.body
+    Object.assign(places,{IP:ip})
     Places.addPlace(places,(err,Places)=>{
         if(err){
             throw err
@@ -64,9 +65,6 @@ app.post('/api/uploadSingleFile', upload.single('img'), (req,res)=>{
 
 //getdata all
 app.get('/api/GetPlaceInfo',(req,res)=>{
-    let ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
-    console.log(ip)
-
     Places.getPlaceInfo((err,Places)=>{
         if(err){
             throw err
@@ -111,6 +109,8 @@ app.post('/api/deletePlaceDataFromId/:_id',(req,res)=>{
 app.put('/api/UpdatePlaceFromId/:_id',(req,res)=>{
     const id = req.params._id;
     const data = req.body;
+    let ip = req.connection.remoteAddress.toString();
+    Object.assign(data,{IP:ip})
     Places.updatePlace(id,data,(err=>{
         if(err){
             throw err
@@ -160,6 +160,8 @@ app.post('/api/uploadEventSingleFile', eventUpload.single('img'), (req,res)=>{
  app.post('/api/addevent',(req,res) => {
     console.log(req.body)
     const events = req.body
+    let ip = req.connection.remoteAddress.toString();
+    Object.assign(events,{IP:ip})
     Events.addEvent(events,(err,Events)=>{
         if(err){
             throw err
@@ -212,6 +214,8 @@ app.post('/api/deleteEventDataFromId/:_id',(req,res)=>{
 app.put('/api/UpdateEventFromId/:_id',(req,res)=>{
     const id = req.params._id;
     const data = req.body;
+    let ip = req.connection.remoteAddress.toString();
+    Object.assign(data,{IP:ip})
     Events.updateEvent(id,data,(err=>{
         if(err){
             throw err
