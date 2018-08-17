@@ -10,7 +10,7 @@ const fs = require('fs')
 // used module
 const app = express()
 app.use(cors())
-
+// const db = mongoose.connect('mongodb://206.189.41.75:27017/finalproject')
 const db = mongoose.connect('mongodb://206.189.41.75:27017/finalproject')
 app.use(bodyParser.json())
 app.use(express.static('static'))
@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
     }
     ,
     filename: (req, file, cb) => {
-      cb(null,today.getDay()+today.getMonth()+today.getFullYear()+today.getHours().toString()+"-"+file.originalname)
+      cb(null,file.originalname)
     }
 });
 const upload = multer({storage: storage});
@@ -142,6 +142,7 @@ app.post('/api/uploadEventSingleFile', eventUpload.single('img'), (req,res)=>{
  })
  //upload multiple file 
  app.post('/api/uploadEventMultipleFile', eventUpload.array('img', 12), (req,res)=>{
+    //  console.log(req.body)
      res.send(console.log("multiple upload says : ",req))
  })
 //delete event file
