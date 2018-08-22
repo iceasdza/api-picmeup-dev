@@ -28,7 +28,7 @@ const RegisterData = mongoose.Schema({
     status:{
         type:Array
     },
-    files:{
+    avatar:{
         type:String
     }
 })
@@ -37,4 +37,13 @@ const Register = module.exports = mongoose.model('RegisterData',RegisterData);
 
 module.exports.register = (event,callback)=>{
     Register.create(event,callback)
+}
+
+module.exports.checkUsername = (_name,callback)=>{
+    Register.findOne({userName:_name},callback)
+}
+
+module.exports.checkEmail = (_email,callback)=>{
+    Register.findOne({email:_email},callback)
+    
 }

@@ -199,16 +199,6 @@ router.get("/GetEventInfo", (req, res) => {
     res.json(Events);
   });
 });
-//get event from ID
-router.get("/getEventInfoFromId/:_id", (req, res) => {
-  const id = req.params._id;
-  Events.getEventInfoFromId(id, (err, Events) => {
-    if (err) {
-      throw err;
-    }
-    res.json(Events);
-  });
-});
 
 //delete event from id
 router.post("/deleteEventDataFromId/:_id", (req, res) => {
@@ -245,4 +235,35 @@ router.put("/UpdateEventFromId/:_id", (req, res) => {
   });
 });
 
+//check username
+router.get("/findUserName/:name",(req,res)=>{
+  const _name = req.params.name;
+  Register.checkUsername(_name,(err,Register)=>{
+    if(err){
+      throw err
+    }
+    res.json(Register)
+  })
+})
+
+router.get("/findEmail/:email",(req,res)=>{
+  const email = req.params.email;
+  Register.checkEmail(email,(err,Register)=>{
+    if(err){
+      throw err
+    }
+    res.json(Register)
+  })
+})
+
+//get event from ID
+router.get("/getEventInfoFromId/:_id", (req, res) => {
+  const id = req.params._id;
+  Events.getEventInfoFromId(id, (err, Events) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Events);
+  });
+});
 module.exports = router;
