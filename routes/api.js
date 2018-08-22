@@ -27,7 +27,7 @@ router.post("/addRegisterInfo", (req, res) => {
     if (err) {
       throw err;
     }
-    res.json(data);
+    res.send(Register);
   });
 });
 
@@ -266,4 +266,12 @@ router.get("/getEventInfoFromId/:_id", (req, res) => {
     res.json(Events);
   });
 });
+
+// Register.checkUser('iceza','123',(err,Register)=>{
+//   if(err){
+//     throw err
+// }
+// res.send(Register)
+// })
+
 module.exports = router;
