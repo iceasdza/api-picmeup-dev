@@ -4,8 +4,7 @@ const multer = require("multer");
 const fs = require("fs");
 const Places = require("../model/places");
 const Events = require("../model/event");
-const Register = require("../model/register")
-
+const Register = require("../model/register");
 
 const avatarStorage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -30,8 +29,6 @@ router.post("/addRegisterInfo", (req, res) => {
     res.send(Register);
   });
 });
-
-
 
 var today = new Date();
 const storage = multer.diskStorage({
@@ -236,25 +233,25 @@ router.put("/UpdateEventFromId/:_id", (req, res) => {
 });
 
 //check username
-router.get("/findUserName/:name",(req,res)=>{
+router.get("/findUserName/:name", (req, res) => {
   const _name = req.params.name;
-  Register.checkUsername(_name,(err,Register)=>{
-    if(err){
-      throw err
+  Register.checkUsername(_name, (err, Register) => {
+    if (err) {
+      throw err;
     }
-    res.json(Register)
-  })
-})
+    res.json(Register);
+  });
+});
 
-router.get("/findEmail/:email",(req,res)=>{
+router.get("/findEmail/:email", (req, res) => {
   const email = req.params.email;
-  Register.checkEmail(email,(err,Register)=>{
-    if(err){
-      throw err
+  Register.checkEmail(email, (err, Register) => {
+    if (err) {
+      throw err;
     }
-    res.json(Register)
-  })
-})
+    res.json(Register);
+  });
+});
 
 //get event from ID
 router.get("/getEventInfoFromId/:_id", (req, res) => {
@@ -264,6 +261,16 @@ router.get("/getEventInfoFromId/:_id", (req, res) => {
       throw err;
     }
     res.json(Events);
+  });
+});
+
+router.post("/login", (req, res) => {
+  const data = req.body;
+  Register.checkUser(data.userName, data.password, (err, Register) => {
+    if (err) {
+      throw err;
+    }
+    res.send(Register);
   });
 });
 

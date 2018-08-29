@@ -39,32 +39,30 @@ const RegisterData = mongoose.Schema({
 
 const Register = module.exports = mongoose.model('RegisterData',RegisterData);
 
-// module.exports.checkUser = (user,password,callback)=>{
-
-//     Register.findOne({ userName: user }, function(err, user) {
-//         if(user === null){
-//             callback(err,{isAuthen:false}) 
-//             return
-//         }
-//         console.log(user.password," ",password)
-//         if (err) throw err;
-//         bcrypt.compare(password,user.password,(err,isMatch)=>{
-//             if(err){
-//                 console.log(err)
-//             }
-//             console.log(user)
-//             console.log(isMatch)
-//         })
+module.exports.checkUser = (user,password,callback)=>{
+    Register.findOne({ userName: user }, function(err, user) {
+        if(user === null){
+            callback(err,{isAuthen:false}) 
+            return
+        }
+        if (err) throw err;
+        bcrypt.compare(password,user.password,(err,isMatch)=>{
+            if(err){
+                throw err
+            }
+            callback(err,{isAuthen:isMatch})
+            return isMatch
+            
+        })
         
-//     });
-// }
+    });
+}
 
 module.exports.register = (event,next)=>{
      bcrypt.genSalt(SALT_WORK_FACTOR,(err,salt)=>{
         if(err){
             console.log(err)
             return next(err)
-            
         }
 
         bcrypt.hash(event.password,salt,(err,hash)=>{
@@ -76,7 +74,6 @@ module.exports.register = (event,next)=>{
             Register.create(event,next)
         })
     })
-//     Register.create(event,callback)
 }
 
 module.exports.checkUsername = (_name,callback)=>{
