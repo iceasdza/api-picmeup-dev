@@ -5,23 +5,75 @@ const fs = require("fs");
 const Places = require("../model/places");
 const Events = require("../model/event");
 const Register = require("../model/register");
+const AWS = require('aws-sdk');
+const multerS3 = require('multer-s3')
 
-const avatarStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./static/images/avatars");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  }
+//config digital ocean space service
+const spacesEndpoint = new AWS.Endpoint('sgp1.digitaloceanspaces.com');
+const s3 = new AWS.S3({
+    endpoint: spacesEndpoint,
+    accessKeyId:"CXOW6IA6AKFKO45QFS7T",
+    secretAccessKey:"T7od5rXCS5r8ScZ+huHl4tmIans+xbfh4j4R0nXGB8c"
+
 });
-const uploadAvatar = multer({ storage: avatarStorage });
+
+//upload config
+
+//--------------------profile API sector-------------------------//
+const uploadAvatar = multer({
+  storage: multerS3({
+    s3:s3,
+    bucket:'picmeup/avatar',
+    acl: 'public-read'
+  })
+})
 
 router.post("/upLoadAvatar", uploadAvatar.single("img"), (req, res) => {
-  res.send(console.log("single upload says : ", req));
+  res.send(req.file.location);
 });
+//
+
+//--------------------upload places API sector-------------------------//
+const uploadPlace = multer({
+  storage: multerS3({
+    s3:s3,
+    bucket:'picmeup/places',
+    acl: 'public-read'
+  })
+})
+
+//----router----//0
+
+//upload single file
+router.post("/uploadSinglePlace", uploadPlace.single("img"), (req, res) => {
+  res.send(req.file.location);
+});
+//upload multiple file
+router.post("/uploadMultiplePlaces", uploadPlace.array("img", 12), (req, res) => {
+  console.log(req)
+  res.send(req.files);
+});
+
+
+//addplace
+router.post("/addplace", (req, res) => {
+  let ip = req.connection.remoteAddress.toString();
+  const places = req.body;
+  Object.assign(places, { IP: ip });
+  Places.addPlace(places, (err, Places) => {
+    if (err) {
+      throw err;
+    }
+    res.json(places);
+  });
+});
+
+
+
 
 router.post("/addRegisterInfo", (req, res) => {
   const data = req.body;
+  console.log(data)
   Register.register(data, (err, Register) => {
     if (err) {
       throw err;
@@ -60,18 +112,6 @@ router.get("/deleteImage/:_id", (req, res) => {
   });
 });
 
-//addplace
-router.post("/addplace", (req, res) => {
-  let ip = req.connection.remoteAddress.toString();
-  const places = req.body;
-  Object.assign(places, { IP: ip });
-  Places.addPlace(places, (err, Places) => {
-    if (err) {
-      throw err;
-    }
-    res.json(places);
-  });
-});
 
 //getdata all
 router.get("/GetPlaceInfo", (req, res) => {
@@ -274,11 +314,10 @@ router.post("/login", (req, res) => {
   });
 });
 
-// Register.checkUser('iceza','123',(err,Register)=>{
-//   if(err){
-//     throw err
-// }
-// res.send(Register)
-// })
+// router.post("/upLoadAvatar", uploadAvatar.single("img"), (req, res) => {
+//   res.send(console.log("single upload says : ", req));
+// });
+
+
 
 module.exports = router;

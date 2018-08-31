@@ -7,10 +7,7 @@ const Place = mongoose.Schema({
     placeDes:{
         type:String
     },
-    FileList:{
-        type:Array
-    },
-    FileName:{
+    images:{
         type:Array
     },
     IP:{
