@@ -89,6 +89,7 @@ module.exports.updatePlace = (id,data,option,callback) =>{
         tags : data.tags,
         editor: data.editor,
         edit_date : data.edit_date,
+        images:data.images
     }
 
     Places.findOneAndUpdate(query,updatedData,option,callback)

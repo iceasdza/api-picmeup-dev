@@ -33,6 +33,7 @@ router.post("/upLoadAvatar", uploadAvatar.single("img"), (req, res) => {
 });
 //
 
+
 //--------------------upload places API sector-------------------------//
 const uploadPlace = multer({
   storage: multerS3({
@@ -50,7 +51,6 @@ router.post("/uploadSinglePlace", uploadPlace.single("img"), (req, res) => {
 });
 //upload multiple file
 router.post("/uploadMultiplePlaces", uploadPlace.array("img", 12), (req, res) => {
-  console.log(req)
   res.send(req.files);
 });
 
@@ -68,7 +68,48 @@ router.post("/addplace", (req, res) => {
   });
 });
 
+//get place from ID
+router.get("/getPlaceInfoFromId/:_id", (req, res) => {
+  const id = req.params._id;
+  Places.getPlaceInfoFromID(id, (err, Places) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Places);
+  });
+});
+//delete place from id
+router.post("/deletePlaceDataFromId/:_id", (req, res) => {
+  const id = req.params._id;
+  Places.DeletePlaceFromId(id, err => {
+    if (err) {
+      throw err;
+    }
+    res.send("ID : " + id + " removed!");
+  });
+});
 
+
+//--------------------upload events API sector-------------------------//
+
+const uploadEvent = multer({
+  storage: multerS3({
+    s3:s3,
+    bucket:'picmeup/events',
+    acl: 'public-read'
+  })
+})
+
+//----router----//
+
+//upload single file
+router.post("/uploadSingleEvent", uploadEvent.single("img"), (req, res) => {
+  res.send(req.file.location);
+});
+//upload multiple file
+router.post("/uploadMultipleEvents", uploadEvent.array("img", 12), (req, res) => {
+  res.send(req.files);
+});
 
 
 router.post("/addRegisterInfo", (req, res) => {
@@ -79,36 +120,6 @@ router.post("/addRegisterInfo", (req, res) => {
       throw err;
     }
     res.send(Register);
-  });
-});
-
-var today = new Date();
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./static/images/places");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  }
-});
-const upload = multer({ storage: storage });
-
-//uload single file
-router.post("/uploadSingleFile", upload.single("img"), (req, res) => {
-  res.send(console.log("single upload says : ", req));
-});
-//upload multiple file
-router.post("/uploadMultipleFile", upload.array("img", 12), (req, res) => {
-  res.send(console.log("multiple upload says : ", req));
-});
-
-router.get("/deleteImage/:_id", (req, res) => {
-  const id = req.params._id;
-  res.send(console.log(id));
-  fs.unlink("static/images/places/" + id, function(err) {
-    if (err) {
-      throw err;
-    }
   });
 });
 
@@ -123,37 +134,8 @@ router.get("/GetPlaceInfo", (req, res) => {
   });
 });
 
-//get data from ID
-router.get("/getPlaceInfoFromId/:_id", (req, res) => {
-  const id = req.params._id;
-  Places.getPlaceInfoFromID(id, (err, Places) => {
-    if (err) {
-      throw err;
-    }
-    res.json(Places);
-  });
-});
 
-//delete data form ID
-router.post("/deletePlaceDataFromId/:_id", (req, res) => {
-  const filesName = req.body.FileName;
-  console.log(filesName);
-  filesName.map(data => {
-    fs.unlink("static/images/places/" + data, function(err) {
-      if (err) {
-        throw err;
-        res.send("can");
-      }
-    });
-  });
-  const id = req.params._id;
-  Places.DeletePlaceFromId(id, err => {
-    if (err) {
-      throw err;
-    }
-    res.send("ID : " + id + " removed!");
-  });
-});
+
 
 //update place from ID
 router.put("/UpdatePlaceFromId/:_id", (req, res) => {
@@ -169,50 +151,6 @@ router.put("/UpdatePlaceFromId/:_id", (req, res) => {
   });
 });
 
-//Event
-
-const eventStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./static/images/events");
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      today.getDay() +
-        today.getMonth() +
-        today.getFullYear() +
-        today.getHours().toString() +
-        "-" +
-        file.originalname
-    );
-  }
-});
-const eventUpload = multer({ storage: eventStorage });
-
-//upload single file
-router.post("/uploadEventSingleFile", eventUpload.single("img"), (req, res) => {
-  res.send(console.log("single upload says : ", req));
-});
-//upload multiple file
-router.post(
-  "/uploadEventMultipleFile",
-  eventUpload.array("img", 12),
-  (req, res) => {
-    //  console.log(req.body)
-    res.send(console.log("multiple upload says : ", req));
-  }
-);
-//delete event file
-router.get("/deleteEventImage/:_id", (req, res) => {
-  const id = req.params._id;
-  res.send(console.log(id));
-  fs.unlink("static/images/events/" + id, function(err) {
-    if (err) {
-      throw err;
-      res.send("can");
-    }
-  });
-});
 
 //add event
 router.post("/addevent", (req, res) => {
@@ -239,16 +177,6 @@ router.get("/GetEventInfo", (req, res) => {
 
 //delete event from id
 router.post("/deleteEventDataFromId/:_id", (req, res) => {
-  const filesName = req.body.FileName;
-  console.log(filesName);
-  filesName.map(data => {
-    fs.unlink("static/images/events/" + data, function(err) {
-      if (err) {
-        throw err;
-        res.send("can");
-      }
-    });
-  });
   const id = req.params._id;
   Events.DeleteEventFromId(id, err => {
     if (err) {
