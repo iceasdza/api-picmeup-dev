@@ -12,8 +12,8 @@ const multerS3 = require('multer-s3')
 const spacesEndpoint = new AWS.Endpoint('sgp1.digitaloceanspaces.com');
 const s3 = new AWS.S3({
     endpoint: spacesEndpoint,
-    accessKeyId:"CXOW6IA6AKFKO45QFS7T",
-    secretAccessKey:"T7od5rXCS5r8ScZ+huHl4tmIans+xbfh4j4R0nXGB8c"
+    accessKeyId:"WE2HA6GBKELTKFESAVGJ",
+    secretAccessKey:"cHFN6MBCnpr3JHeQyBQ6Y/ItmPKYj1so8du6BQuhofs"
 
 });
 
