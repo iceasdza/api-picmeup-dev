@@ -66,6 +66,10 @@ module.exports.getEventInfoFromId = (id,callback,limit)=>{
     Events.find({_id:query},callback).limit(limit)
 }
 
+module.exports.getEventInfoFromName = (name,callback,limit)=>{
+    Events.find({eventName:name},callback).limit(limit)
+}
+
 module.exports.getEventInfo = (callback,limit)=>{
     Events.find(callback).limit(limit)
 }

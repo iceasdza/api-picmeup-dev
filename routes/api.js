@@ -78,6 +78,17 @@ router.get("/getPlaceInfoFromId/:_id", (req, res) => {
     res.json(Places);
   });
 });
+
+//get place from ID
+router.get("/getPlaceInfoFromName/:name", (req, res) => {
+  const name = req.params.name;
+  Places.getPlaceInfoFromName(name, (err, Places) => {
+    if (err) {
+      throw err;
+    }
+    res.send(Places[0].id);
+  });
+});
 //delete place from id
 router.post("/deletePlaceDataFromId/:_id", (req, res) => {
   const id = req.params._id;
@@ -229,6 +240,16 @@ router.get("/getEventInfoFromId/:_id", (req, res) => {
       throw err;
     }
     res.json(Events);
+  });
+});
+
+router.get("/getEventInfoFromName/:name", (req, res) => {
+  const name = req.params.name;
+  Events.getEventInfoFromName(name, (err, Events) => {
+    if (err) {
+      throw err;
+    }
+    res.send(Events[0].id);
   });
 });
 

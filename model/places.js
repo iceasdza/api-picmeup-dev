@@ -62,6 +62,11 @@ module.exports.getPlaceInfoFromID = (id,callback,limit)=>{
     const query = {_id:id}
     Places.find({_id:query},callback).limit(limit)
 }
+
+//find by name
+module.exports.getPlaceInfoFromName = (name,callback,limit)=>{
+    Places.find({placeName:name},callback).limit(limit)
+}
 //find all
 module.exports.getPlaceInfo = (callback,limit)=>{
     Places.find(callback).limit(limit)
@@ -72,6 +77,7 @@ module.exports.DeletePlaceFromId = (id,callback)=>{
     const query = {_id:id}
     Places.remove(query,callback)
 }
+
 
 //update place from Id
 module.exports.updatePlace = (id,data,option,callback) =>{
