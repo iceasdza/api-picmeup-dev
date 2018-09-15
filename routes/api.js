@@ -4,6 +4,7 @@ const multer = require("multer");
 const fs = require("fs");
 const Places = require("../model/places");
 const Events = require("../model/event");
+const Topics = require('../model/topic')
 const Register = require("../model/register");
 const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3')
@@ -265,6 +266,31 @@ router.post("/login", (req, res) => {
 
 // router.post("/upLoadAvatar", uploadAvatar.single("img"), (req, res) => {
 //   res.send(console.log("single upload says : ", req));
+// });
+
+router.post("/creatplace", (req, res) => {
+  let ip = req.connection.remoteAddress.toString();
+  const topics = req.body;
+  Object.assign(topics, { IP: ip });
+  Topics.createTopic(topics, (err, topics) => {
+    if (err) {
+      throw err;
+    }
+    res.json(topics);
+  });
+});
+
+// router.post("/addevent", (req, res) => {
+//   console.log(req.body);
+//   const events = req.body;
+//   let ip = req.connection.remoteAddress.toString();
+//   Object.assign(events, { IP: ip });
+//   Events.addEvent(events, (err, Events) => {
+//     if (err) {
+//       throw err;
+//     }
+//     res.json(events);
+//   });
 // });
 
 
