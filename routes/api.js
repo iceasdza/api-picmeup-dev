@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const fs = require("fs");
 const Places = require("../model/places");
 const Events = require("../model/event");
 const Topics = require('../model/topic')
@@ -280,19 +279,37 @@ router.post("/creatplace", (req, res) => {
   });
 });
 
-// router.post("/addevent", (req, res) => {
-//   console.log(req.body);
-//   const events = req.body;
-//   let ip = req.connection.remoteAddress.toString();
-//   Object.assign(events, { IP: ip });
-//   Events.addEvent(events, (err, Events) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.json(events);
-//   });
-// });
+router.get("/getalltopics", (req, res) => {
+  Topics.getAllTopics((err, Topics) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Topics);
+  });
+});
 
+router.get("/getTopicFromId/:_id", (req, res) => {
+  const id = req.params._id;
+  Topics.getTopicFromId(id, (err, Topics) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Topics);
+  });
+});
 
+router.put("/addTopicComment/:_id", (req, res) => {
+  const id = req.params._id;
+  const data = req.body;
+  console.log(data)
+  // let ip = req.connection.remoteAddress.toString();
+  // Object.assign(data, { IP: ip });
+  Topics.updateComments(id, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
+  });
+});
 
 module.exports = router;
