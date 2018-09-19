@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const fs = require("fs");
 const Places = require("../model/places");
 const Events = require("../model/event");
+const Topics = require('../model/topic')
 const Register = require("../model/register");
 const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3')
@@ -267,6 +267,49 @@ router.post("/login", (req, res) => {
 //   res.send(console.log("single upload says : ", req));
 // });
 
+router.post("/creatplace", (req, res) => {
+  let ip = req.connection.remoteAddress.toString();
+  const topics = req.body;
+  Object.assign(topics, { IP: ip });
+  Topics.createTopic(topics, (err, topics) => {
+    if (err) {
+      throw err;
+    }
+    res.json(topics);
+  });
+});
 
+router.get("/getalltopics", (req, res) => {
+  Topics.getAllTopics((err, Topics) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Topics);
+  });
+});
+
+router.get("/getTopicFromId/:_id", (req, res) => {
+  const id = req.params._id;
+  Topics.getTopicFromId(id, (err, Topics) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Topics);
+  });
+});
+
+router.put("/addTopicComment/:_id", (req, res) => {
+  const id = req.params._id;
+  const data = req.body;
+  console.log(data)
+  // let ip = req.connection.remoteAddress.toString();
+  // Object.assign(data, { IP: ip });
+  Topics.updateComments(id, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
+  });
+});
 
 module.exports = router;
