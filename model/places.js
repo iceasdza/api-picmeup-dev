@@ -37,10 +37,10 @@ const Place = mongoose.Schema({
     tags:{
         type:Array
     },
-    latLocation:{
+    lat:{
         type:String
     },
-    longLocation:{
+    lng:{
         type:String
     },
     editor:{
@@ -98,7 +98,9 @@ module.exports.updatePlace = (id,data,option,callback) =>{
         tags : data.tags,
         editor: data.editor,
         edit_date : data.edit_date,
-        images:data.images
+        images:data.images,
+        lat:data.lat,
+        lng:data.lng
     }
 
     Places.findOneAndUpdate(query,updatedData,option,callback)
