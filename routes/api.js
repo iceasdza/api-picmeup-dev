@@ -100,6 +100,20 @@ router.post("/deletePlaceDataFromId/:_id", (req, res) => {
   });
 });
 
+router.put("/addPlaceComment/:_id", (req, res) => {
+  const id = req.params._id;
+  const data = req.body;
+  console.log(data)
+  // let ip = req.connection.remoteAddress.toString();
+  // Object.assign(data, { IP: ip });
+  Places.updateComments(id, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
+  });
+});
+
 
 //--------------------upload events API sector-------------------------//
 
@@ -210,7 +224,24 @@ router.put("/UpdateEventFromId/:_id", (req, res) => {
     res.json(data);
   });
 });
+router.put("/addEventComment/:_id", (req, res) => {
+  const id = req.params._id;
+  const data = req.body;
+  console.log(data)
+  // let ip = req.connection.remoteAddress.toString();
+  // Object.assign(data, { IP: ip });
+  Events.updateComments(id, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
+  });
+});
 
+
+
+
+// ===================================================================================================
 //check username
 router.get("/findUserName/:name", (req, res) => {
   const _name = req.params.name;

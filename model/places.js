@@ -22,6 +22,9 @@ const Place = mongoose.Schema({
     closeTime:{
         type:String
     },
+    comments:{
+        type:Array
+    },
     fee:{
         type:String
     },
@@ -96,6 +99,15 @@ module.exports.updatePlace = (id,data,option,callback) =>{
         editor: data.editor,
         edit_date : data.edit_date,
         images:data.images
+    }
+
+    Places.findOneAndUpdate(query,updatedData,option,callback)
+}
+
+module.exports.updateComments = (id,data,option,callback) =>{
+    const query = {_id : id}
+    const updatedData = {
+        comments:data.comments
     }
 
     Places.findOneAndUpdate(query,updatedData,option,callback)

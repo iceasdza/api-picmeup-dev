@@ -43,6 +43,9 @@ const Event = mongoose.Schema({
     editor:{
         type:String
     },
+    comments:{
+        type:Array
+    },
     edit_date:{       
         type:String
     },
@@ -95,6 +98,15 @@ module.exports.updateEvent = (id,data,option,callback) =>{
         PlaceId:data.PlaceId,
         editor: data.editor,
         edit_date : data.edit_date
+    }
+
+    Events.findOneAndUpdate(query,updatedData,option,callback)
+}
+
+module.exports.updateComments = (id,data,option,callback) =>{
+    const query = {_id : id}
+    const updatedData = {
+        comments:data.comments
     }
 
     Events.findOneAndUpdate(query,updatedData,option,callback)
