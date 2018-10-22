@@ -28,18 +28,18 @@ module.exports.addAlbum = (Album,callback) =>{
     Albums.create(Album,callback);
 }
 //find one
-module.exports.getPlaceInfoFromID = (id,callback,limit)=>{
+module.exports.getAlbumFromId = (id,callback,limit)=>{
     const query = {_id:id}
-    Album.find({_id:query},callback).limit(limit)
+    Albums.find({_id:query},callback).limit(limit)
 }
 
 //find by name
 module.exports.getPlaceInfoFromName = (name,callback,limit)=>{
-    Album.find({placeName:name},callback).limit(limit)
+    Albums.find({placeName:name},callback).limit(limit)
 }
 //find all
-module.exports.getPlaceInfo = (callback,limit)=>{
-    Album.find(callback).limit(limit)
+module.exports.getAlbums = (callback,limit)=>{
+    Albums.find(callback).limit(limit)
 }
 
 //remove from Id
@@ -79,5 +79,5 @@ module.exports.updateComments = (id,data,option,callback) =>{
         comments:data.comments
     }
 
-    Album.findOneAndUpdate(query,updatedData,option,callback)
+    Albums.findOneAndUpdate(query,updatedData,option,callback)
 }

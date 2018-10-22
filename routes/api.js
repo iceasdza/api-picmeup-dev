@@ -5,10 +5,9 @@ const Places = require("../model/places");
 const Events = require("../model/event");
 const Topics = require('../model/topic')
 const Register = require("../model/register");
-const Album = require('../model/album')
+const Albums = require('../model/album')
 const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
-const sharp = require('sharp');
 
 //config digital ocean space service
 const spacesEndpoint = new AWS.Endpoint('sgp1.digitaloceanspaces.com');
@@ -264,7 +263,7 @@ router.post("/addAlbum", (req, res) => {
   let ip = req.connection.remoteAddress.toString();
   const album = req.body;
   Object.assign(album, { IP: ip });
-  Album.addAlbum(album, (err, Album) => {
+  Albums.addAlbum(album, (err, Albums) => {
     if (err) {
       throw err;
     }
@@ -272,6 +271,39 @@ router.post("/addAlbum", (req, res) => {
   });
 });
 
+
+//getdata all
+router.get("/getAlbums", (req, res) => {
+  Albums.getAlbums((err, Albums) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Albums);
+  });
+});
+
+router.get("/getAlbumFromId/:_id", (req, res) => {
+  const id = req.params._id;
+  Albums.getAlbumFromId(id, (err, Albums) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Albums);
+  });
+});
+
+router.put("/addAlbumComment/:_id", (req, res) => {
+  const id = req.params._id;
+  const data = req.body;
+  // let ip = req.connection.remoteAddress.toString();
+  // Object.assign(data, { IP: ip });
+  Albums.updateComments(id, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
+  });
+});
 
 
 
