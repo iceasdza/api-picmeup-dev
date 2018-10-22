@@ -5,6 +5,7 @@ const Places = require("../model/places");
 const Events = require("../model/event");
 const Topics = require('../model/topic')
 const Register = require("../model/register");
+const Album = require('../model/album')
 const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const sharp = require('sharp');
@@ -98,6 +99,20 @@ router.post("/deletePlaceDataFromId/:_id", (req, res) => {
       throw err;
     }
     res.send("ID : " + id + " removed!");
+  });
+});
+
+router.put("/addPlaceComment/:_id", (req, res) => {
+  const id = req.params._id;
+  const data = req.body;
+  console.log(data)
+  // let ip = req.connection.remoteAddress.toString();
+  // Object.assign(data, { IP: ip });
+  Places.updateComments(id, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
   });
 });
 
@@ -211,7 +226,57 @@ router.put("/UpdateEventFromId/:_id", (req, res) => {
     res.json(data);
   });
 });
+router.put("/addEventComment/:_id", (req, res) => {
+  const id = req.params._id;
+  const data = req.body;
+  console.log(data)
+  // let ip = req.connection.remoteAddress.toString();
+  // Object.assign(data, { IP: ip });
+  Events.updateComments(id, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
+  });
+});
 
+//======================================================================================================
+const uploadAlbum = multer({
+  storage: multerS3({
+    s3:s3,
+    bucket:'picmeup/album',
+    acl: 'public-read'
+  })
+})
+
+//----router----//
+
+//upload single file
+router.post("/uploadSingleImage", uploadAlbum.single("img"), (req, res) => {
+  res.send(req.file.location);
+});
+//upload multiple file
+router.post("/uploadMultipleImage", uploadAlbum.array("img", 12), (req, res) => {
+  res.send(req.files);
+});
+
+router.post("/addAlbum", (req, res) => {
+  let ip = req.connection.remoteAddress.toString();
+  const album = req.body;
+  Object.assign(album, { IP: ip });
+  Album.addAlbum(album, (err, Album) => {
+    if (err) {
+      throw err;
+    }
+    res.json(album);
+  });
+});
+
+
+
+
+
+// ===================================================================================================
 //check username
 router.get("/findUserName/:name", (req, res) => {
   const _name = req.params.name;
@@ -312,5 +377,6 @@ router.put("/addTopicComment/:_id", (req, res) => {
     res.json(data);
   });
 });
+
 
 module.exports = router;

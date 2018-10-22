@@ -1,84 +1,51 @@
 const mongoose = require('mongoose');
 
-const Place = mongoose.Schema({
-    placeName:{
+const Album = mongoose.Schema({
+    albumName:{
         type: String
     },
-    placeDes:{
+    albumDes:{
         type:String
     },
     images:{
         type:Array
     },
-    IP:{
-        type:String
-    },
-    tel:{
-        type:String
-    },
-    openTime:{
-        type:String
-    },
-    closeTime:{
-        type:String
-    },
     comments:{
         type:Array
     },
-    fee:{
+    albumOwner:{
         type:String
     },
-    carParking:{
-        type:String
-    },
-    days:{
-        type:Array
-    },
-    tags:{
-        type:Array
-    },
-    lat:{
-        type:String
-    },
-    lng:{
-        type:String
-    },
-    editor:{
-        type:String
-    },
-    edit_date:{       
-        type:String
-    },
-    create_date:{
+    createDate:{
         type:Date,
         default: Date.now
     }
 });
 
-const Places = module.exports = mongoose.model('Place',Place)
+const Albums = module.exports = mongoose.model('Album',Album)
 
-module.exports.addPlace = (places,callback) =>{
-    Places.create(places,callback);
+module.exports.addAlbum = (Album,callback) =>{
+    Albums.create(Album,callback);
 }
 //find one
 module.exports.getPlaceInfoFromID = (id,callback,limit)=>{
     const query = {_id:id}
-    Places.find({_id:query},callback).limit(limit)
+    Album.find({_id:query},callback).limit(limit)
 }
 
 //find by name
 module.exports.getPlaceInfoFromName = (name,callback,limit)=>{
-    Places.find({placeName:name},callback).limit(limit)
+    Album.find({placeName:name},callback).limit(limit)
 }
 //find all
 module.exports.getPlaceInfo = (callback,limit)=>{
-    Places.find(callback).limit(limit)
+    Album.find(callback).limit(limit)
 }
 
 //remove from Id
 module.exports.DeletePlaceFromId = (id,callback)=>{
     const query = {_id:id}
-    Places.remove(query,callback)
+    Album.remove(query,callback)
 }
 
 
@@ -103,7 +70,7 @@ module.exports.updatePlace = (id,data,option,callback) =>{
         lng:data.lng
     }
 
-    Places.findOneAndUpdate(query,updatedData,option,callback)
+    Album.findOneAndUpdate(query,updatedData,option,callback)
 }
 
 module.exports.updateComments = (id,data,option,callback) =>{
@@ -112,5 +79,5 @@ module.exports.updateComments = (id,data,option,callback) =>{
         comments:data.comments
     }
 
-    Places.findOneAndUpdate(query,updatedData,option,callback)
+    Album.findOneAndUpdate(query,updatedData,option,callback)
 }

@@ -15,6 +15,9 @@ const Topic = mongoose.Schema({
     comments:{
         type:Array
     },
+    placeId:{
+        type:String
+    },
     create_date:{
         type:Date,
         default: Date.now
