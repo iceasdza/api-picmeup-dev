@@ -6,7 +6,8 @@ const Events = require("../model/event");
 const Topics = require('../model/topic')
 const Register = require("../model/register");
 const AWS = require('aws-sdk');
-const multerS3 = require('multer-s3')
+const multerS3 = require('multer-s3');
+const sharp = require('sharp');
 
 //config digital ocean space service
 const spacesEndpoint = new AWS.Endpoint('sgp1.digitaloceanspaces.com');
