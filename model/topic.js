@@ -46,3 +46,14 @@ module.exports.updateComments = (id,data,option,callback) =>{
 
     Topics.findOneAndUpdate(query,updatedData,option,callback)
 }
+
+module.exports.updateTopic= (id,data,option,callback) =>{
+    const query = {_id : id}
+    const updatedData = {
+        placeId:data.placeId,
+        content:data.content,
+        topicName:data.topicName
+    }
+
+    Topics.findOneAndUpdate(query,updatedData,option,callback)
+}

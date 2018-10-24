@@ -365,7 +365,7 @@ router.post("/login", (req, res) => {
 //   res.send(console.log("single upload says : ", req));
 // });
 
-router.post("/creatplace", (req, res) => {
+router.post("/createTopic", (req, res) => {
   let ip = req.connection.remoteAddress.toString();
   const topics = req.body;
   Object.assign(topics, { IP: ip });
@@ -403,6 +403,20 @@ router.put("/addTopicComment/:_id", (req, res) => {
   // let ip = req.connection.remoteAddress.toString();
   // Object.assign(data, { IP: ip });
   Topics.updateComments(id, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
+  });
+});
+
+router.put("/updateTopic/:_id", (req, res) => {
+  const id = req.params._id;
+  const data = req.body;
+  console.log(data)
+  // let ip = req.connection.remoteAddress.toString();
+  // Object.assign(data, { IP: ip });
+  Topics.updateTopic(id, data, err => {
     if (err) {
       throw err;
     }
