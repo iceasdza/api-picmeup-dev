@@ -422,7 +422,7 @@ router.put("/updateTopic/:_id", (req, res) => {
   });
 });
 
-router.post("/updateGeolocation", (req, res) => {
+router.put("/updateGeolocation", (req, res) => {
   const _name = req.body.user;
   const data = req.body;
   Register.updateGeoLocation(_name, data, err => {
