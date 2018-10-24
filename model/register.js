@@ -33,6 +33,12 @@ const RegisterData = mongoose.Schema({
     },
     avatar:{
         type:String
+    },
+    lat:{
+        type:String
+    },
+    lng:{
+        type:String
     }
 })
 
@@ -83,4 +89,17 @@ module.exports.checkUsername = (_name,callback)=>{
 module.exports.checkEmail = (_email,callback)=>{
     Register.findOne({email:_email},callback)
     
+}
+
+module.exports.updateGeoLocation = (_name,data,option,callback)=>{
+    const query = {userName : _name}
+    const updatedData = {
+        lat:data.lat,
+        lng:data.lng
+    }
+    Register.findOneAndUpdate(query,updatedData,option,callback)
+}
+
+module.exports.getAllGeoLocation = (user,callback,limit)=>{
+    Register.find(callback).where('userName').ne(user).limit(limit)
 }
