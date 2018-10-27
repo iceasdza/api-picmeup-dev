@@ -105,3 +105,7 @@ module.exports.updateGeoLocation = (_name,data,option,callback)=>{
 module.exports.getAllGeoLocation = (user,callback,limit)=>{
     Register.find(callback).where('userName').ne(user).where('latitude').ne(null).where('longitude').ne(null).limit(limit)
 }
+
+module.exports.getProfile = (_userName,callback)=>{
+    Register.findOne({userName:_userName},callback)
+}
