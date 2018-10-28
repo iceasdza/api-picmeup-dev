@@ -307,6 +307,16 @@ router.put("/addAlbumComment/:_id", (req, res) => {
 });
 
 // ===================================================================================================
+router.get("/profile/:_userName",(req,res)=>{
+  const userName = req.params._userName;
+  console.dir(userName)
+  Register.getProfile(userName,(err,Register)=>{
+if(err){
+  throw err;
+}
+res.json(Register);
+  })
+})
 //check username
 router.get("/findUserName/:name", (req, res) => {
   const _name = req.params.name;
