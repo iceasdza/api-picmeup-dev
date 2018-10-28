@@ -16,8 +16,8 @@ app.use(cors())
 const db = mongoose.connect('mongodb://206.189.41.75:27017/finalproject')
 // app.use(bodyParser.json())
 
-app.use(bodyParser.json({limit: "50mb"}));
-app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+app.use(bodyParser.json({limit: "100mb"}));
+app.use(bodyParser.urlencoded({limit: "100mb", extended: true, parameterLimit:50000}));
 
 // route
 app.get('/', (req, res) => res.send('Hello World!'))
