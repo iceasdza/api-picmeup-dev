@@ -152,6 +152,18 @@ router.post("/addRegisterInfo", (req, res) => {
   });
 });
 
+router.put("/updateProfile/:_user", (req, res) => {
+  const user = req.params._user
+  const data = req.body;
+  console.dir(data)
+  Register.updateProfile(user, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
+  });
+});
+
 //getdata all
 router.get("/GetPlaceInfo", (req, res) => {
   Places.getPlaceInfo((err, Places) => {

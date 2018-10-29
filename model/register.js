@@ -109,3 +109,14 @@ module.exports.getAllGeoLocation = (user,callback,limit)=>{
 module.exports.getProfile = (_userName,callback)=>{
     Register.findOne({userName:_userName},callback)
 }
+
+module.exports.updateProfile = (user,data,option,callback)=>{
+    const query = {userName : user}
+    const updatedData = {
+           firstName: data.firstName,
+            lastName: data.lastName,
+            email:data.email,
+            tel:data.tel
+    }
+    Register.findOneAndUpdate(query,updatedData,option,callback)
+}
