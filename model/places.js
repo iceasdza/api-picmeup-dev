@@ -28,7 +28,16 @@ const Place = mongoose.Schema({
     fee:{
         type:String
     },
+    feePrice:{
+        type:String
+    },
     carParking:{
+        type:String
+    },
+    carParkSize:{
+        type:String
+    },
+    carParkPrice:{
         type:String
     },
     days:{
