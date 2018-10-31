@@ -4,10 +4,6 @@ const Tag = mongoose.Schema({
     tagName:{
         type: String,
         unique: true
-    },
-    tagStatus:{
-        type:Boolean,
-        default:false
     }
 
 });

@@ -7,6 +7,7 @@ const Topics = require("../model/topic");
 const Register = require("../model/register");
 const Albums = require("../model/album");
 const Tags = require('../model/tags')
+const Activities = require('../model/activity')
 const AWS = require("aws-sdk");
 const multerS3 = require("multer-s3");
 
@@ -507,4 +508,53 @@ router.put("/updateActiveTag", (req, res) => {
   });
 });
 
+router.get("/getPlaceFromTag/:tag", (req, res) => {
+  const tag = req.params.tag;
+  Places.getPlaceFromTag(tag, (err, Places) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Places);
+  });
+});
+
+router.post("/addActivity", (req, res) => {
+  const activity = req.body;
+  Activities.addActivity(activity, (err, Activities) => {
+    if (err) {
+      throw err;
+    }
+    res.json(activity);
+  });
+});
+
+router.get("/getAllActivity", (req, res) => {
+  Activities.getAllActivity((err, Activities) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Activities);
+  });
+});
+
+router.get("/getPlaceFromActivity/:activity", (req, res) => {
+  const activity = req.params.activity;
+  Places.getPlaceFromTag(activity, (err, Places) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Places);
+  });
+});
+
+router.put("/updateActivity", (req, res) => {
+  const newTag = req.body.newTag;
+  const oldTag = req.body.oldTag;
+  Activities.updateActiveActivity(newTag, oldTag, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(Activities);
+  });
+});
 module.exports = router;

@@ -37,6 +37,9 @@ const Place = mongoose.Schema({
     tags:{
         type:Array
     },
+    activities:{
+        type:Array
+    },
     lat:{
         type:String
     },
@@ -70,6 +73,10 @@ module.exports.getPlaceInfoFromID = (id,callback,limit)=>{
 module.exports.getPlaceInfoFromName = (name,callback,limit)=>{
     Places.find({placeName:name},callback).limit(limit)
 }
+
+module.exports.getPlaceFromTag = (activity,callback,limit)=>{
+    Places.find({activities:activity},callback).limit(limit)
+}
 //find all
 module.exports.getPlaceInfo = (callback,limit)=>{
     Places.find(callback).limit(limit)
@@ -99,6 +106,7 @@ module.exports.updatePlace = (id,data,option,callback) =>{
         editor: data.editor,
         edit_date : data.edit_date,
         images:data.images,
+        activities:data.activities,
         lat:data.lat,
         lng:data.lng
     }
