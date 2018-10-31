@@ -6,6 +6,7 @@ const Events = require("../model/event");
 const Topics = require("../model/topic");
 const Register = require("../model/register");
 const Albums = require("../model/album");
+const Tags = require('../model/tags')
 const AWS = require("aws-sdk");
 const multerS3 = require("multer-s3");
 
@@ -473,6 +474,25 @@ router.get("/getAllGeo/:_user", (req, res) => {
       throw err;
     }
     res.json(Register);
+  });
+});
+
+router.post("/addTag", (req, res) => {
+  const tag = req.body;
+  Tags.addTag(tag, (err, Tags) => {
+    if (err) {
+      throw err;
+    }
+    res.json(tag);
+  });
+});
+
+router.get("/getAllTags", (req, res) => {
+  Tags.getAllTags((err, Tags) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Tags);
   });
 });
 
