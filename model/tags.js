@@ -5,6 +5,10 @@ const Tag = mongoose.Schema({
         type: String,
         unique: true
     },
+    tagStatus:{
+        type:Boolean,
+        default:false
+    }
 
 });
 
@@ -59,11 +63,18 @@ module.exports.removeTag = (id,callback)=>{
 //     Places.findOneAndUpdate(query,updatedData,option,callback)
 // }
 
-// module.exports.updateComments = (id,data,option,callback) =>{
-//     const query = {_id : id}
-//     const updatedData = {
-//         comments:data.comments
-//     }
+module.exports.updateActiveTag = (newTag,oldTag,option,callback) =>{
+    // const newTag = {_id : id}
+    // const oldTag = {}
+    const updateOld = {
+        tagStatus:false
+    }
+    const updateNew = {
+        tagStatus:true
+    }
+   Tags.findOneAndUpdate({tagName:oldTag},updateOld,option,callback)
 
-//     Places.findOneAndUpdate(query,updatedData,option,callback)
-// }
+    Tags.findOneAndUpdate({tagName:newTag},updateNew,option,callback)
+
+    // Places.findOneAndUpdate(query,updatedData,option,callback)
+}

@@ -496,4 +496,15 @@ router.get("/getAllTags", (req, res) => {
   });
 });
 
+router.put("/updateActiveTag", (req, res) => {
+  const newTag = req.body.newTag;
+  const oldTag = req.body.oldTag;
+  Tags.updateActiveTag(newTag, oldTag, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(Tags);
+  });
+});
+
 module.exports = router;
