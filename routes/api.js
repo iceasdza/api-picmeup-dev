@@ -455,6 +455,17 @@ router.put("/updateGeolocation", (req, res) => {
   });
 });
 
+router.put("/updateStatus", (req, res) => {
+  const _name = req.body.user;
+  const data = req.body;
+  Register.updateStatus(_name, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.send(data);
+  });
+});
+
 router.get("/getAllGeo/:_user", (req, res) => {
   const user = req.params._user;
   Register.getAllGeoLocation(user,(err, Register) => {

@@ -29,7 +29,8 @@ const RegisterData = mongoose.Schema({
         type:String
     },
     status:{
-        type:Array
+        type:String,
+        default:'busy'
     },
     avatar:{
         type:String
@@ -117,6 +118,14 @@ module.exports.updateProfile = (user,data,option,callback)=>{
             lastName: data.lastName,
             email:data.email,
             tel:data.tel
+    }
+    Register.findOneAndUpdate(query,updatedData,option,callback)
+}
+
+module.exports.updateStatus = (_name,data,option,callback)=>{
+    const query = {userName : _name}
+    const updatedData = {
+        status:data.status
     }
     Register.findOneAndUpdate(query,updatedData,option,callback)
 }
