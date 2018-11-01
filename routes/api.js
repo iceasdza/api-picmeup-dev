@@ -10,6 +10,7 @@ const Tags = require('../model/tags')
 const Activities = require('../model/activity')
 const Inboxes = require('../model/inbox')
 const AWS = require("aws-sdk");
+var moment = require('moment-timezone');
 const multerS3 = require("multer-s3");
 
 //config digital ocean space service
@@ -450,6 +451,9 @@ router.put("/updateTopic/:_id", (req, res) => {
 router.put("/updateGeolocation", (req, res) => {
   const _name = req.body.user;
   const data = req.body;
+  // const date = Date.now(Date.prototype.getDate())
+  var getDate = new Date(moment.tz(new Date(), "Asia/Bangkok").format())
+  console.dir(getDate)
   Register.updateGeoLocation(_name, data, err => {
     if (err) {
       throw err;
