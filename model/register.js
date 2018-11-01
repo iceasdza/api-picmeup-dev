@@ -29,8 +29,8 @@ const RegisterData = mongoose.Schema({
         type:String
     },
     status:{
-        type:String,
-        default:'busy'
+        type:Boolean,
+        default:false
     },
     avatar:{
         type:String
@@ -42,7 +42,7 @@ const RegisterData = mongoose.Schema({
     longitude:{
         type:String,
         default:null
-    }
+    },
 })
 
 

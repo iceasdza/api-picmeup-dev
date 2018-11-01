@@ -8,6 +8,7 @@ const Register = require("../model/register");
 const Albums = require("../model/album");
 const Tags = require('../model/tags')
 const Activities = require('../model/activity')
+const Inboxes = require('../model/inbox')
 const AWS = require("aws-sdk");
 const multerS3 = require("multer-s3");
 
@@ -557,4 +558,25 @@ router.put("/updateActivity", (req, res) => {
     res.json(Activities);
   });
 });
+
+router.post("/sendMessage", (req, res) => {
+  const message = req.body;
+  Inboxes.sendMessage(message, (err, Inboxes) => {
+    if (err) {
+      throw err;
+    }
+    res.json(message);
+  });
+});
+
+router.get("/getMessageFromName/:name", (req, res) => {
+  const name = req.params.name;
+  Inboxes.getMessageFromName(name, (err, Inboxes) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Inboxes);
+  });
+});
+
 module.exports = router;
