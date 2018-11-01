@@ -17,9 +17,8 @@ const Inbox = mongoose.Schema({
     avatar:{
         type:String
     },
-    create_date:{
-        type:Date,
-        default: Date.now
+    sendDate:{
+        type:String
     }
 });
 

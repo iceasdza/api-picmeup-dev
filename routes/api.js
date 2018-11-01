@@ -451,10 +451,10 @@ router.put("/updateTopic/:_id", (req, res) => {
 router.put("/updateGeolocation", (req, res) => {
   const _name = req.body.user;
   const data = req.body;
-  // const date = Date.now(Date.prototype.getDate())
-  var getDate = new Date(moment.tz(new Date(), "Asia/Bangkok").format())
-  console.dir(getDate)
-  Register.updateGeoLocation(_name, data, err => {
+  const date = moment().tz("Asia/Bangkok").format()
+  // var getDate = new Date(moment.tz(new Date(), "Asia/Bangkok").format())
+  console.dir(date)
+  Register.updateGeoLocation(_name, data,date, err => {
     if (err) {
       throw err;
     }
@@ -565,6 +565,8 @@ router.put("/updateActivity", (req, res) => {
 
 router.post("/sendMessage", (req, res) => {
   const message = req.body;
+  const date = moment().tz("Asia/Bangkok").format()
+  Object.assign(message, { sendDate: date });
   Inboxes.sendMessage(message, (err, Inboxes) => {
     if (err) {
       throw err;
