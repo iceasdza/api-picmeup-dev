@@ -34,8 +34,8 @@ module.exports.getAlbumFromId = (id,callback,limit)=>{
 }
 
 //find by name
-module.exports.getPlaceInfoFromName = (name,callback,limit)=>{
-    Albums.find({placeName:name},callback).limit(limit)
+module.exports.getAlbumsFromId = (id,callback,limit)=>{
+    Albums.find({_id:id},callback).limit(limit)
 }
 //find all
 module.exports.getAlbums = (callback,limit)=>{
@@ -50,27 +50,15 @@ module.exports.DeletePlaceFromId = (id,callback)=>{
 
 
 //update place from Id
-module.exports.updatePlace = (id,data,option,callback) =>{
+module.exports.updateAlbum = (id,data,option,callback) =>{
     const query = {_id : id}
     const updatedData = {
-        placeName : data.placeName,
-        placeDes : data.placeDes,
-        tel : data.tel,
-        openTime : data.openTime,
-        closeTime : data.closeTime,
-        fee : data.fee,
-        carParking : data.carParking,
-        FileList : data.FileList,
-        days : data.days,
-        tags : data.tags,
-        editor: data.editor,
-        edit_date : data.edit_date,
-        images:data.images,
-        lat:data.lat,
-        lng:data.lng
+            albumName:data.albumName,
+            albumDes:data.albumDes,
+            images:data.images
     }
 
-    Album.findOneAndUpdate(query,updatedData,option,callback)
+    Albums.findOneAndUpdate(query,updatedData,option,callback)
 }
 
 module.exports.updateComments = (id,data,option,callback) =>{

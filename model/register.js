@@ -48,7 +48,8 @@ const RegisterData = mongoose.Schema({
         default:null
     },
     lastCheckIn:{
-        type:Date
+        type:String,
+        default:null
     }
 })
 
@@ -101,12 +102,12 @@ module.exports.checkEmail = (_email,callback)=>{
     
 }
 
-module.exports.updateGeoLocation = (_name,data,option,callback)=>{
+module.exports.updateGeoLocation = (_name,data,date,option,callback)=>{
     const query = {userName : _name}
     const updatedData = {
         latitude:data.latitude,
         longitude:data.longitude,
-        lastCheckIn:data.lastCheckIn
+        lastCheckIn:date
     }
     // console.dir(typeof new Date().moment().format())
     Register.findOneAndUpdate(query,updatedData,option,callback)

@@ -452,10 +452,10 @@ router.put("/updateTopic/:_id", (req, res) => {
 router.put("/updateGeolocation", (req, res) => {
   const _name = req.body.user;
   const data = req.body;
-  // const date = Date.now(Date.prototype.getDate())
-  var getDate = new Date(momentTz().tz(new Date(), "Asia/Bangkok").format()).toString()
-  console.dir(getDate)
-  Register.updateGeoLocation(_name, data, err => {
+  const date = moment().tz("Asia/Bangkok").format()
+  // var getDate = new Date(moment.tz(new Date(), "Asia/Bangkok").format())
+  console.dir(date)
+  Register.updateGeoLocation(_name, data,date, err => {
     if (err) {
       throw err;
     }
@@ -566,6 +566,8 @@ router.put("/updateActivity", (req, res) => {
 
 router.post("/sendMessage", (req, res) => {
   const message = req.body;
+  const date = moment().tz("Asia/Bangkok").format()
+  Object.assign(message, { sendDate: date });
   Inboxes.sendMessage(message, (err, Inboxes) => {
     if (err) {
       throw err;
@@ -581,6 +583,27 @@ router.get("/getMessageFromName/:name", (req, res) => {
       throw err;
     }
     res.json(Inboxes);
+  });
+});
+
+router.get("/getAlbumFromId/:id", (req, res) => {
+  const id = req.params.id;
+  Albums.getAlbumsFromId(id, (err, Albums) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Albums);
+  });
+});
+
+router.put("/updateAlbum/:_id", (req, res) => {
+  const id = req.params._id;
+  const data = req.body;
+  Albums.updateAlbum(id, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
   });
 });
 
