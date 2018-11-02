@@ -28,9 +28,8 @@ module.exports.addAlbum = (Album,callback) =>{
     Albums.create(Album,callback);
 }
 //find one
-module.exports.getAlbumFromId = (id,callback,limit)=>{
-    const query = {_id:id}
-    Albums.find({_id:query},callback).limit(limit)
+module.exports.getAlbumsFromName = (name,callback,limit)=>{
+    Albums.find({albumOwner:name},callback).limit(limit)
 }
 
 //find by name

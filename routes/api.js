@@ -302,7 +302,7 @@ router.get("/getAlbums", (req, res) => {
 
 router.get("/getAlbumFromId/:_id", (req, res) => {
   const id = req.params._id;
-  Albums.getAlbumFromId(id, (err, Albums) => {
+  Albums.getAlbumsFromId(id, (err, Albums) => {
     if (err) {
       throw err;
     }
@@ -589,6 +589,16 @@ router.get("/getMessageFromName/:name", (req, res) => {
 router.get("/getAlbumFromId/:id", (req, res) => {
   const id = req.params.id;
   Albums.getAlbumsFromId(id, (err, Albums) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Albums);
+  });
+});
+
+router.get("/getAlbumFromName/:name", (req, res) => {
+  const name = req.params.name;
+  Albums.getAlbumsFromName(name, (err, Albums) => {
     if (err) {
       throw err;
     }
