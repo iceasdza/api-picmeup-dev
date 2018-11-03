@@ -617,4 +617,13 @@ router.put("/updateAlbum/:_id", (req, res) => {
   });
 });
 
+router.put("/changeMessageState/:_id", (req, res) => {
+  const id = req.params._id;
+  Inboxes.changeMessageState(id, err => {
+    if (err) {
+      throw err;
+    }
+  });
+});
+
 module.exports = router;

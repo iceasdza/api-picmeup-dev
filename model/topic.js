@@ -30,12 +30,12 @@ module.exports.createTopic = (topics,callback) =>{
     Topics.create(topics,callback);
 }
 module.exports.getAllTopics = (callback,limit)=>{
-    Topics.find(callback).limit(limit)
+    Topics.find(callback).sort({ create_date : -1}).limit(limit)
 }
 
 module.exports.getTopicFromId = (id,callback,limit)=>{
     const query = {_id:id}
-    Topics.find({_id:query},callback).limit(limit)
+    Topics.find({_id:query},callback).sort({ create_date : -1}).limit(limit)
 }
 
 module.exports.updateComments = (id,data,option,callback) =>{

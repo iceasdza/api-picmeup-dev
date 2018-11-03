@@ -38,7 +38,7 @@ module.exports.getAlbumsFromId = (id,callback,limit)=>{
 }
 //find all
 module.exports.getAlbums = (callback,limit)=>{
-    Albums.find(callback).limit(limit)
+    Albums.find(callback).sort({ createDate : -1}).limit(limit)
 }
 
 //remove from Id

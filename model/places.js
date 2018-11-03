@@ -84,11 +84,11 @@ module.exports.getPlaceInfoFromName = (name,callback,limit)=>{
 }
 
 module.exports.getPlaceFromTag = (activity,callback,limit)=>{
-    Places.find({activities:activity},callback).limit(limit)
+    Places.find({activities:activity},callback).sort({ create_date : -1}).limit(limit)
 }
 //find all
 module.exports.getPlaceInfo = (callback,limit)=>{
-    Places.find(callback).limit(limit)
+    Places.find(callback).sort({ create_date : -1}).limit(limit)
 }
 
 //remove from Id
