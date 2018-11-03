@@ -34,7 +34,7 @@ module.exports.sendMessage = (places,callback) =>{
 
 //find by name
 module.exports.getMessageFromName = (name,callback,limit)=>{
-    Inboxes.find({reciver:name},callback).limit(limit).sort({createDate:-1})
+    Inboxes.find({reciver:name},null,{sort: {_id: -1}},callback)
 }
 
 module.exports.changeMessageState = (id,option,callback) =>{
