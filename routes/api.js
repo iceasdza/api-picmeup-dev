@@ -411,6 +411,25 @@ router.get("/getalltopics", (req, res) => {
   });
 });
 
+router.get("/getInteractTopic/:name", (req, res) => {
+  const user = req.params.name;
+  Topics.getAllTopics((err, Topics) => {
+    if (err) {
+      throw err;
+    }
+    const arr = []
+    Topics.map(data=>{
+      data.comments.map(userData=>{
+        if(userData.commentator === user){
+          arr.push({name:data.topicName,id:data._id})
+        }
+      })
+    })
+
+    res.send(arr)
+  });
+});
+
 router.get("/getTopicFromId/:_id", (req, res) => {
   const id = req.params._id;
   Topics.getTopicFromId(id, (err, Topics) => {
@@ -623,6 +642,17 @@ router.put("/changeMessageState/:_id", (req, res) => {
     if (err) {
       throw err;
     }
+  });
+});
+
+
+router.get("/getTopicFromName/:name", (req, res) => {
+  const name = req.params.name;
+  Topics.getTopicFromUser(name, (err, Topics) => {
+    if (err) {
+      throw err;
+    }
+    res.send(Topics);
   });
 });
 

@@ -33,7 +33,7 @@ module.exports.sendMessage = (places,callback) =>{
 }
 
 //find by name
-module.exports.getMessageFromName = (name,callback,limit)=>{
+module.exports.getMessageFromName = (name,callback)=>{
     Inboxes.find({reciver:name},null,{sort: {_id: -1}},callback)
 }
 

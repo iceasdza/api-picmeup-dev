@@ -35,15 +35,28 @@ module.exports.getAllTopics = (callback,limit)=>{
 
 module.exports.getTopicFromId = (id,callback,limit)=>{
     const query = {_id:id}
-    Topics.find({_id:query},callback).sort({ create_date : -1}).limit(limit)
+    Topics.find({_id:query},callback).limit(limit)
 }
+
+module.exports.getTopicFromUser = (name,callback,limit)=>{
+    Topics.find({creator:name},callback).limit(limit)
+}
+
+// module.exports.getTopicFromInteractUser = (name,callback,limit)=>{
+//     data = {
+//         $regex : {$regex:/ddd/ },
+//         commentator : name,
+//         avatar:'https://picmeup.sgp1.digitaloceanspaces.com/avatar/02e6e50cd7034b80788e57b30e914d73'
+//     }
+//     Topics.find({comments:data},callback).limit(limit)
+// }
+
 
 module.exports.updateComments = (id,data,option,callback) =>{
     const query = {_id : id}
     const updatedData = {
         comments:data.comments
     }
-
     Topics.findOneAndUpdate(query,updatedData,option,callback)
 }
 
