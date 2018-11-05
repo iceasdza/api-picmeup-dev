@@ -77,7 +77,7 @@ module.exports.getEventInfoFromName = (name,callback,limit)=>{
 }
 
 module.exports.getEventInfo = (callback,limit)=>{
-    Events.find(callback).limit(limit)
+    Events.find(callback).sort({ create_date : -1}).limit(limit)
 }
 
 module.exports.DeleteEventFromId = (id,callback)=>{

@@ -10,6 +10,8 @@ const Tags = require('../model/tags')
 const Activities = require('../model/activity')
 const Inboxes = require('../model/inbox')
 const AWS = require("aws-sdk");
+var moment = require('moment-timezone');
+const momentTz = require('moment-timezone')
 const multerS3 = require("multer-s3");
 
 //config digital ocean space service
@@ -300,7 +302,7 @@ router.get("/getAlbums", (req, res) => {
 
 router.get("/getAlbumFromId/:_id", (req, res) => {
   const id = req.params._id;
-  Albums.getAlbumFromId(id, (err, Albums) => {
+  Albums.getAlbumsFromId(id, (err, Albums) => {
     if (err) {
       throw err;
     }
@@ -409,6 +411,33 @@ router.get("/getalltopics", (req, res) => {
   });
 });
 
+router.get("/getInteractTopic/:name", (req, res) => {
+  const user = req.params.name;
+  Topics.getTopicComment((err, Topics) => {
+    if (err) {
+      throw err;
+    }
+    const arr = []
+    Topics.map(topic=>{
+      topic.comments.map(data=>{
+        if(data.commentator===user){
+          arr.push({name:topic.topicName,id:topic._id})
+
+        }
+      })
+      // data.comments.map(userData=>{
+      //   if(userData.commentator === user){
+      //     arr.push({name:data.topicName,id:data._id})
+      //   }
+      // })
+    })
+
+    res.send(arr)
+  });
+});
+
+
+
 router.get("/getTopicFromId/:_id", (req, res) => {
   const id = req.params._id;
   Topics.getTopicFromId(id, (err, Topics) => {
@@ -450,7 +479,10 @@ router.put("/updateTopic/:_id", (req, res) => {
 router.put("/updateGeolocation", (req, res) => {
   const _name = req.body.user;
   const data = req.body;
-  Register.updateGeoLocation(_name, data, err => {
+  const date = moment().tz("Asia/Bangkok").format()
+  // var getDate = new Date(moment.tz(new Date(), "Asia/Bangkok").format())
+  console.dir(date)
+  Register.updateGeoLocation(_name, data,date, err => {
     if (err) {
       throw err;
     }
@@ -561,6 +593,8 @@ router.put("/updateActivity", (req, res) => {
 
 router.post("/sendMessage", (req, res) => {
   const message = req.body;
+  const date = moment().tz("Asia/Bangkok").format()
+  Object.assign(message, { sendDate: date });
   Inboxes.sendMessage(message, (err, Inboxes) => {
     if (err) {
       throw err;
@@ -576,6 +610,57 @@ router.get("/getMessageFromName/:name", (req, res) => {
       throw err;
     }
     res.json(Inboxes);
+  });
+});
+
+router.get("/getAlbumFromId/:id", (req, res) => {
+  const id = req.params.id;
+  Albums.getAlbumsFromId(id, (err, Albums) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Albums);
+  });
+});
+
+router.get("/getAlbumFromName/:name", (req, res) => {
+  const name = req.params.name;
+  Albums.getAlbumsFromName(name, (err, Albums) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Albums);
+  });
+});
+
+router.put("/updateAlbum/:_id", (req, res) => {
+  const id = req.params._id;
+  const data = req.body;
+  Albums.updateAlbum(id, data, err => {
+    if (err) {
+      throw err;
+    }
+    res.json(data);
+  });
+});
+
+router.put("/changeMessageState/:_id", (req, res) => {
+  const id = req.params._id;
+  Inboxes.changeMessageState(id, err => {
+    if (err) {
+      throw err;
+    }
+  });
+});
+
+
+router.get("/getTopicFromName/:name", (req, res) => {
+  const name = req.params.name;
+  Topics.getTopicFromUser(name, (err, Topics) => {
+    if (err) {
+      throw err;
+    }
+    res.send(Topics);
   });
 });
 
