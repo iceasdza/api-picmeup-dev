@@ -22,9 +22,12 @@ const Event = mongoose.Schema({
     fee:{
         type:String
     },
-    carParking:{
+    feePrice:{
         type:String
     },
+    // carParking:{
+    //     type:String
+    // },
     days:{
         type:Array
     },
