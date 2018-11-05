@@ -413,22 +413,30 @@ router.get("/getalltopics", (req, res) => {
 
 router.get("/getInteractTopic/:name", (req, res) => {
   const user = req.params.name;
-  Topics.getAllTopics((err, Topics) => {
+  Topics.getTopicComment((err, Topics) => {
     if (err) {
       throw err;
     }
     const arr = []
-    Topics.map(data=>{
-      data.comments.map(userData=>{
-        if(userData.commentator === user){
-          arr.push({name:data.topicName,id:data._id})
+    Topics.map(topic=>{
+      topic.comments.map(data=>{
+        if(data.commentator===user){
+          arr.push({name:topic.topicName,id:topic._id})
+
         }
       })
+      // data.comments.map(userData=>{
+      //   if(userData.commentator === user){
+      //     arr.push({name:data.topicName,id:data._id})
+      //   }
+      // })
     })
 
     res.send(arr)
   });
 });
+
+
 
 router.get("/getTopicFromId/:_id", (req, res) => {
   const id = req.params._id;
