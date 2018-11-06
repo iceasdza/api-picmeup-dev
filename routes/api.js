@@ -86,6 +86,26 @@ router.get("/getPlaceInfoFromId/:_id", (req, res) => {
   });
 });
 
+router.get("/getDataForSearch/:value", (req, res) => {
+  const value = req.params.value;
+  Places.find({ placeName: new RegExp('^' + value) }, function (err, doc) {
+    if(err) {
+      console.log(err)
+    }
+    res.json(doc)
+  });
+  // Places.getDataForSearch(value, (err, Places) => {
+  //   if (err) {
+  //     console.log(err)
+  //     throw err;
+  //   }
+  //   console.log(Places)
+
+
+  //   res.json(Places);
+  // });
+});
+
 //get place from ID
 router.get("/getPlaceInfoFromName/:name", (req, res) => {
   const name = req.params.name;
@@ -324,14 +344,14 @@ router.put("/addAlbumComment/:_id", (req, res) => {
 });
 
 // ===================================================================================================
-router.get("/profile/:_userName",(req,res)=>{
+router.get("/profile/:_userName", (req, res) => {
   const userName = req.params._userName;
   console.dir(userName)
-  Register.getProfile(userName,(err,Register)=>{
-if(err){
-  throw err;
-}
-res.json(Register);
+  Register.getProfile(userName, (err, Register) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Register);
   })
 })
 //check username
@@ -418,10 +438,10 @@ router.get("/getInteractTopic/:name", (req, res) => {
       throw err;
     }
     const arr = []
-    Topics.map(topic=>{
-      topic.comments.map(data=>{
-        if(data.commentator===user){
-          arr.push({name:topic.topicName,id:topic._id})
+    Topics.map(topic => {
+      topic.comments.map(data => {
+        if (data.commentator === user) {
+          arr.push({ name: topic.topicName, id: topic._id })
 
         }
       })
@@ -482,7 +502,7 @@ router.put("/updateGeolocation", (req, res) => {
   const date = moment().tz("Asia/Bangkok").format()
   // var getDate = new Date(moment.tz(new Date(), "Asia/Bangkok").format())
   console.dir(date)
-  Register.updateGeoLocation(_name, data,date, err => {
+  Register.updateGeoLocation(_name, data, date, err => {
     if (err) {
       throw err;
     }
@@ -503,7 +523,7 @@ router.put("/updateStatus", (req, res) => {
 
 router.get("/getAllGeo/:_user", (req, res) => {
   const user = req.params._user;
-  Register.getAllGeoLocation(user,(err, Register) => {
+  Register.getAllGeoLocation(user, (err, Register) => {
     if (err) {
       throw err;
     }
