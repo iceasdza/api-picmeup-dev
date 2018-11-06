@@ -8,8 +8,11 @@ const Activity = mongoose.Schema({
     status:{
         type:Boolean,
         default:false
+    },
+    content:{
+        type:String,
+        default:null
     }
-
 });
 
 const Activities = module.exports = mongoose.model('Activity',Activity)
@@ -28,12 +31,14 @@ module.exports.removeActivity = (id,callback)=>{
     Activities.remove(query,callback)
 }
 
-module.exports.updateActiveActivity = (newAct,oldAct,option,callback) =>{
+module.exports.updateActiveActivity = (newAct,oldAct,content,option,callback) =>{
     const updateOld = {
-        status:false
+        status:false,
+        content:null
     }
     const updateNew = {
-        status:true
+        status:true,
+        content:content
     }
     Activities.findOneAndUpdate({activityName:oldAct},updateOld,option,callback)
 

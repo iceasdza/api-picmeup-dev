@@ -68,3 +68,8 @@ module.exports.updateComments = (id,data,option,callback) =>{
 
     Albums.findOneAndUpdate(query,updatedData,option,callback)
 }
+
+module.exports.DeleteAlbum = (id,callback)=>{
+    const query = {_id:id}
+    Albums.remove(query,callback)
+}
