@@ -127,7 +127,8 @@ module.exports.updateProfile = (user,data,option,callback)=>{
            firstName: data.firstName,
             lastName: data.lastName,
             email:data.email,
-            tel:data.tel
+            tel:data.tel,
+            avatar:data.avatar
     }
     Register.findOneAndUpdate(query,updatedData,option,callback)
 }

@@ -583,7 +583,8 @@ router.get("/getPlaceFromActivity/:activity", (req, res) => {
 router.put("/updateActivity", (req, res) => {
   const newTag = req.body.newTag;
   const oldTag = req.body.oldTag;
-  Activities.updateActiveActivity(newTag, oldTag, err => {
+  const content  = req.body.content
+  Activities.updateActiveActivity(newTag, oldTag,content, err => {
     if (err) {
       throw err;
     }
@@ -661,6 +662,26 @@ router.get("/getTopicFromName/:name", (req, res) => {
       throw err;
     }
     res.send(Topics);
+  });
+});
+
+router.post("/deleteTopic/:_id", (req, res) => {
+  const id = req.params._id;
+  Topics.DeleteTopic(id, err => {
+    if (err) {
+      throw err;
+    }
+    res.send(Topics);
+  });
+});
+
+router.post("/deleteAlbum/:_id", (req, res) => {
+  const id = req.params._id;
+  Albums.DeleteAlbum(id, err => {
+    if (err) {
+      throw err;
+    }
+    res.send(Albums);
   });
 });
 

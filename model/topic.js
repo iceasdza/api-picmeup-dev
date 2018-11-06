@@ -30,7 +30,7 @@ module.exports.createTopic = (topics,callback) =>{
     Topics.create(topics,callback);
 }
 module.exports.getAllTopics = (callback,limit)=>{
-    Topics.find(callback).sort({ create_date : -1}).select({ topicName: 1, create_date: 1 }).limit(limit)
+    Topics.find(callback).sort({ create_date : -1}).select({ topicName: 1, create_date: 1,creator:1 }).limit(limit)
 }
 
 module.exports.getTopicComment = (callback,limit)=>{
@@ -46,14 +46,10 @@ module.exports.getTopicFromUser = (name,callback,limit)=>{
     Topics.find({creator:name},callback).limit(limit)
 }
 
-// module.exports.getTopicFromInteractUser = (name,callback,limit)=>{
-//     data = {
-//         $regex : {$regex:/ddd/ },
-//         commentator : name,
-//         avatar:'https://picmeup.sgp1.digitaloceanspaces.com/avatar/02e6e50cd7034b80788e57b30e914d73'
-//     }
-//     Topics.find({comments:data},callback).limit(limit)
-// }
+module.exports.DeleteTopic = (id,callback)=>{
+    const query = {_id:id}
+    Topics.remove(query,callback)
+}
 
 
 module.exports.updateComments = (id,data,option,callback) =>{
