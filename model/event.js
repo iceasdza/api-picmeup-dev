@@ -25,9 +25,6 @@ const Event = mongoose.Schema({
     feePrice:{
         type:String
     },
-    // carParking:{
-    //     type:String
-    // },
     days:{
         type:Array
     },
@@ -55,6 +52,10 @@ const Event = mongoose.Schema({
     IP:{
         type:String
     },
+    viewCount:{
+        type:Number,
+        default:0
+    },
     create_date:{
         type:Date,
         default: Date.now
@@ -69,7 +70,7 @@ module.exports.addEvent = (events,callback) =>{
 
 module.exports.getEventInfoFromId = (id,callback,limit)=>{
     const query = {_id:id}
-    Events.find({_id:query},callback).limit(limit)
+   Events.find({_id:query},callback).limit(limit)
 }
 
 module.exports.getEventInfoFromName = (name,callback,limit)=>{
@@ -78,6 +79,10 @@ module.exports.getEventInfoFromName = (name,callback,limit)=>{
 
 module.exports.getEventInfo = (callback,limit)=>{
     Events.find(callback).sort({ create_date : -1}).limit(limit)
+}
+
+module.exports.getHotEvent = (callback)=>{
+    Events.find(callback).sort({ viewCount : -1}).limit(3)
 }
 
 module.exports.DeleteEventFromId = (id,callback)=>{
@@ -112,5 +117,13 @@ module.exports.updateComments = (id,data,option,callback) =>{
         comments:data.comments
     }
 
+    Events.findOneAndUpdate(query,updatedData,option,callback)
+}
+
+module.exports.countView = (id,data,option,callback) =>{
+    const query = {_id : id}
+    const updatedData = {
+        viewCount:data
+    }
     Events.findOneAndUpdate(query,updatedData,option,callback)
 }

@@ -78,11 +78,17 @@ router.post("/addplace", (req, res) => {
 //get place from ID
 router.get("/getPlaceInfoFromId/:_id", (req, res) => {
   const id = req.params._id;
-  Places.getPlaceInfoFromID(id, (err, Places) => {
+  Places.getPlaceInfoFromID(id, (err, data) => {
     if (err) {
       throw err;
     }
-    res.json(Places);
+    let count = data[0].viewCount+1
+    Places.countView(id,count,err=>{
+      if(err){
+        throw err
+      }
+    })
+    res.json(data);
   });
 });
 
@@ -131,8 +137,6 @@ router.put("/addPlaceComment/:_id", (req, res) => {
   const id = req.params._id;
   const data = req.body;
   console.log(data);
-  // let ip = req.connection.remoteAddress.toString();
-  // Object.assign(data, { IP: ip });
   Places.updateComments(id, data, err => {
     if (err) {
       throw err;
@@ -378,11 +382,17 @@ router.get("/findEmail/:email", (req, res) => {
 //get event from ID
 router.get("/getEventInfoFromId/:_id", (req, res) => {
   const id = req.params._id;
-  Events.getEventInfoFromId(id, (err, Events) => {
+  Events.getEventInfoFromId(id, (err, data) => {
     if (err) {
       throw err;
     }
-    res.json(Events);
+    let count = data[0].viewCount+1
+    Events.countView(id,count,err=>{
+      if(err){
+        throw err
+      }
+    })
+    res.json(data);
   });
 });
 
@@ -704,5 +714,25 @@ router.post("/deleteAlbum/:_id", (req, res) => {
     res.send(Albums);
   });
 });
+
+router.get("/getHotEvent", (req, res) => {
+  Events.getHotEvent((err, Events) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Events);
+  });
+});
+
+router.get("/getHotPlace", (req, res) => {
+  Places.getHotPlaces((err, Events) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Events);
+  });
+});
+
+
 
 module.exports = router;

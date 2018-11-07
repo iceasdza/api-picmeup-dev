@@ -64,6 +64,10 @@ const Place = mongoose.Schema({
     create_date: {
         type: Date,
         default: Date.now
+    },
+    viewCount:{
+        type:Number,
+        default:0
     }
 });
 
@@ -132,8 +136,19 @@ module.exports.updateComments = (id, data, option, callback) => {
     Places.findOneAndUpdate(query, updatedData, option, callback)
 }
 
+module.exports.getHotPlaces = (callback)=>{
+    Places.find(callback).sort({ viewCount : -1}).limit(3)
+}
+
 module.exports.getDataForSearch = (placeName, callback) => {
     return  Places.findOne({ placeName: new RegExp('^' + placeName + '$', "i") }, function (err, doc) {
             return doc
         });
+}
+module.exports.countView = (id,data,option,callback) =>{
+    const query = {_id : id}
+    const updatedData = {
+        viewCount:data
+    }
+    Places.findOneAndUpdate(query,updatedData,option,callback)
 }

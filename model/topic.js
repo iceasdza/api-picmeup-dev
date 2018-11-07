@@ -12,7 +12,7 @@ const Topic = mongoose.Schema({
     creator:{
         type:String
     },
-    comments:{
+    comments:{  
         type:Array
     },
     placeId:{
@@ -21,6 +21,9 @@ const Topic = mongoose.Schema({
     create_date:{
         type:Date,
         default: Date.now
+    },
+    topicPlace:{
+        type:String
     }
 });
 
@@ -30,7 +33,7 @@ module.exports.createTopic = (topics,callback) =>{
     Topics.create(topics,callback);
 }
 module.exports.getAllTopics = (callback,limit)=>{
-    Topics.find(callback).sort({ create_date : -1}).select({ topicName: 1, create_date: 1,creator:1 }).limit(limit)
+    Topics.find(callback).sort({ create_date : -1}).select({ topicName: 1, topicPlace: 1,creator:1 }).limit(limit)
 }
 
 module.exports.getTopicComment = (callback,limit)=>{
@@ -65,7 +68,8 @@ module.exports.updateTopic= (id,data,option,callback) =>{
     const updatedData = {
         placeId:data.placeId,
         content:data.content,
-        topicName:data.topicName
+        topicName:data.topicName,
+        topicPlace:data.topicPlace
     }
 
     Topics.findOneAndUpdate(query,updatedData,option,callback)
