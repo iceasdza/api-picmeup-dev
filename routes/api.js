@@ -92,24 +92,24 @@ router.get("/getPlaceInfoFromId/:_id", (req, res) => {
   });
 });
 
-router.get("/getDataForSearch/:value", (req, res) => {
-  const value = req.params.value;
-  Places.find({ placeName: new RegExp('^' + value) }, function (err, doc) {
+router.get("/getDataForSearchPlace/:value", (req, res) => {
+  const value = req.params.value;  
+    Places.find({ placeName: new RegExp(value+'+') }, function (err, doc) {
     if(err) {
       console.log(err)
     }
     res.json(doc)
-  });
-  // Places.getDataForSearch(value, (err, Places) => {
-  //   if (err) {
-  //     console.log(err)
-  //     throw err;
-  //   }
-  //   console.log(Places)
+  });  
+});
 
-
-  //   res.json(Places);
-  // });
+router.get("/getDataForSearchEvent/:value", (req, res) => {
+  const value = req.params.value;  
+  Events.find({ eventName: new RegExp(value+'+') }, function (err, doc) {
+    if(err) {
+      console.log(err)
+    }
+    res.json(doc)
+  });  
 });
 
 //get place from ID
