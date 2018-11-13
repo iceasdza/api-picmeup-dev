@@ -10,7 +10,7 @@ const Event = mongoose.Schema({
     images:{
         type:Array
     },
-    tel:{
+    content:{
         type:String
     },
     openTime:{
@@ -95,7 +95,7 @@ module.exports.updateEvent = (id,data,option,callback) =>{
     const updatedData = {
         eventName : data.eventName,
         eventDes : data.eventDes,
-        tel : data.tel,
+        content : data.content,
         openTime : data.openTime,
         closeTime : data.closeTime,
         fee : data.fee,
