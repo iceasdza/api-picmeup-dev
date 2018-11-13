@@ -13,7 +13,7 @@ const Place = mongoose.Schema({
     IP: {
         type: String
     },
-    tel: {
+    contact: {
         type: String
     },
     openTime: {
@@ -108,7 +108,7 @@ module.exports.updatePlace = (id, data, option, callback) => {
     const updatedData = {
         placeName: data.placeName,
         placeDes: data.placeDes,
-        tel: data.tel,
+        contact:data.contact,
         openTime: data.openTime,
         closeTime: data.closeTime,
         fee: data.fee,
