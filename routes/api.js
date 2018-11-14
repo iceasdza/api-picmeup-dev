@@ -386,6 +386,7 @@ router.get("/getEventInfoFromId/:_id", (req, res) => {
     if (err) {
       throw err;
     }
+    
     let count = data[0].viewCount+1
     Events.countView(id,count,err=>{
       if(err){
@@ -451,17 +452,10 @@ router.get("/getInteractTopic/:name", (req, res) => {
     Topics.map(topic => {
       topic.comments.map(data => {
         if (data.commentator === user) {
-          arr.push({ name: topic.topicName, id: topic._id })
-
+          arr.push({ name: topic.topicName, id: topic._id,comment:data.comment,creator:topic.creator })
         }
       })
-      // data.comments.map(userData=>{
-      //   if(userData.commentator === user){
-      //     arr.push({name:data.topicName,id:data._id})
-      //   }
-      // })
     })
-
     res.send(arr)
   });
 });
