@@ -112,6 +112,26 @@ router.get("/getDataForSearchEvent/:value", (req, res) => {
   });  
 });
 
+router.get("/getTagForSearchPlace/:value", (req, res) => {
+  const value = req.params.value;  
+    Places.find({ tags: new RegExp(value+'+') }, function (err, doc) {
+    if(err) {
+      console.log(err)
+    }
+    res.json(doc)
+  });  
+});
+
+router.get("/getTagForSearchEvent/:value", (req, res) => {
+  const value = req.params.value;  
+  Events.find({ tags: new RegExp(value+'+') }, function (err, doc) {
+    if(err) {
+      console.log(err)
+    }
+    res.json(doc)
+  });  
+});
+
 //get place from ID
 router.get("/getPlaceInfoFromName/:name", (req, res) => {
   const name = req.params.name;
