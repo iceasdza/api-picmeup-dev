@@ -88,7 +88,7 @@ module.exports.getPlaceInfoFromName = (name, callback, limit) => {
 }
 
 module.exports.getPlaceFromTag = (activity, callback, limit) => {
-    Places.find({ activities: activity }, callback).sort({ create_date: -1 }).limit(limit)
+    Places.find({ activities: activity }, callback).sort({ create_date: -1 }).limit(5)
 }
 //find all
 module.exports.getPlaceInfo = (callback, limit) => {
