@@ -24,6 +24,12 @@ const Topic = mongoose.Schema({
     },
     topicPlace:{
         type:String
+    },
+    date:{
+        type:String
+    },
+    time:{
+        type:String
     }
 });
 
@@ -69,7 +75,9 @@ module.exports.updateTopic= (id,data,option,callback) =>{
         placeId:data.placeId,
         content:data.content,
         topicName:data.topicName,
-        topicPlace:data.topicPlace
+        topicPlace:data.topicPlace,
+        date:data.date,
+        time:time.data
     }
 
     Topics.findOneAndUpdate(query,updatedData,option,callback)
