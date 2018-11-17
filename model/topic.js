@@ -77,7 +77,7 @@ module.exports.updateTopic= (id,data,option,callback) =>{
         topicName:data.topicName,
         topicPlace:data.topicPlace,
         date:data.date,
-        time:time.data
+        time:data.time
     }
 
     Topics.findOneAndUpdate(query,updatedData,option,callback)
