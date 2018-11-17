@@ -39,7 +39,7 @@ module.exports.createTopic = (topics,callback) =>{
     Topics.create(topics,callback);
 }
 module.exports.getAllTopics = (callback,limit)=>{
-    Topics.find(callback).sort({ create_date : -1}).select({ topicName: 1, topicPlace: 1,creator:1 }).limit(limit)
+    Topics.find(callback).sort({ create_date : -1}).select({ topicName: 1, topicPlace: 1,creator:1,date:1 }).limit(limit)
 }
 
 module.exports.getTopicComment = (callback,limit)=>{
