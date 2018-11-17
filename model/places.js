@@ -95,6 +95,10 @@ module.exports.getPlaceInfo = (callback, limit) => {
     Places.find(callback).sort({ create_date: -1 }).limit(limit)
 }
 
+module.exports.getNewPlace = (callback, limit) => {
+    Places.find(callback).sort({ create_date: -1 }).limit(10)
+}
+
 //remove from Id
 module.exports.DeletePlaceFromId = (id, callback) => {
     const query = { _id: id }

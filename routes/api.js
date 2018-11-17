@@ -243,6 +243,15 @@ router.get("/GetPlaceInfo", (req, res) => {
   });
 });
 
+router.get("/getnewplace", (req, res) => {
+  Places.getNewPlace((err, Places) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Places);
+  });
+});
+
 //update place from ID
 router.put("/UpdatePlaceFromId/:_id", (req, res) => {
   const id = req.params._id;
@@ -273,6 +282,15 @@ router.post("/addevent", (req, res) => {
 //get all event
 router.get("/GetEventInfo", (req, res) => {
   Events.getEventInfo((err, Events) => {
+    if (err) {
+      throw err;
+    }
+    res.json(Events);
+  });
+});
+
+router.get("/getnewevent", (req, res) => {
+  Events.getNewEvent((err, Events) => {
     if (err) {
       throw err;
     }

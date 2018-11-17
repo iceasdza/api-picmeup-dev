@@ -81,6 +81,10 @@ module.exports.getEventInfo = (callback,limit)=>{
     Events.find(callback).sort({ create_date : -1}).limit(limit)
 }
 
+
+module.exports.getNewEvent = (callback,limit)=>{
+    Events.find(callback).sort({ create_date : -1}).limit(10)
+}
 module.exports.getHotEvent = (callback)=>{
     Events.find(callback).sort({ viewCount : -1}).limit(3)
 }
