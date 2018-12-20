@@ -1,0 +1,429 @@
+{ 
+    "_id" : ObjectId("5bf1a489e5681b41f8b14acb"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "ไม่หลับไม่นอนนนน", 
+    "sender" : "asd", 
+    "reciver" : "zxc", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/16e6ddf05778451365c14b6303248f3b", 
+    "sendDate" : "2018-11-19T00:42:33+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1a498e5681b41f8b14acc"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "ว่าไงค้าบบบ", 
+    "sender" : "zxc", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/16e6ddf05778451365c14b6303248f3b", 
+    "sendDate" : "2018-11-19T00:42:48+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf225e1e5681b41f8b14ace"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "ว่าไงปิงปอง", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T09:54:25+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf225f6e5681b41f8b14acf"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "อิิอิปิงปอง งู้ยยยยยย", 
+    "sender" : "asd", 
+    "reciver" : "NikonIsTheBest", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T09:54:46+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf226a2e5681b41f8b14ad0"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "ถ่ายรูปหน่อย", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T09:57:38+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf22a4de5681b41f8b14ad1"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T10:13:17+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf22b66e5681b41f8b14ad2"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "netty", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/3f898852fc47d1056ad8dff84b9006e3", 
+    "sendDate" : "2018-11-19T10:17:58+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf22f1ce5681b41f8b14ad4"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T10:33:48+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf2314de5681b41f8b14ad5"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T10:43:09+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf23443e5681b41f8b14ad6"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "pinoy", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T10:55:47+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf23456e5681b41f8b14ad7"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "hi", 
+    "sender" : "asd", 
+    "reciver" : "NikonIsTheBest", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T10:56:06+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf2357ae5681b41f8b14ad8"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "netty", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/3f898852fc47d1056ad8dff84b9006e3", 
+    "sendDate" : "2018-11-19T11:00:58+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf236c1e5681b41f8b14ad9"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T11:06:25+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf239a9e5681b41f8b14ada"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T11:18:49+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf23b73e5681b41f8b14adb"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T11:26:27+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf24324e5681b41f8b14adc"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "test", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T11:59:16+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf24dfde5681b41f8b14add"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T12:45:33+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf24ef2e5681b41f8b14ade"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T12:49:38+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf2507de5681b41f8b14adf"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T12:56:13+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf25081e5681b41f8b14ae0"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "1900 1900 191", 
+    "sender" : "asd", 
+    "reciver" : "NikonIsTheBest", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/2e334bd519eb67e87931496775e3ad9d", 
+    "sendDate" : "2018-11-19T12:56:17+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf251b6e5681b41f8b14ae1"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "เทส", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T13:01:26+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf252d8e5681b41f8b14ae2"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T13:06:16+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf253a8e5681b41f8b14ae3"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T13:09:44+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf2556ee5681b41f8b14ae4"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "admin", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/37e3795bd2288bbb1d05b38a8ab8d884", 
+    "sendDate" : "2018-11-19T13:17:18+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf25768e5681b41f8b14ae5"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T13:25:44+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf2576ae5681b41f8b14ae6"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T13:25:46+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf25bf5e5681b41f8b14ae7"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "อีบอลลล ภ่ายรูปๆ", 
+    "sender" : "admin", 
+    "reciver" : "NikonIsTheBest", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/2e334bd519eb67e87931496775e3ad9d", 
+    "sendDate" : "2018-11-19T13:45:09+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf25c04e5681b41f8b14ae8"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "ดั้ยโลย", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "admin", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/2e334bd519eb67e87931496775e3ad9d", 
+    "sendDate" : "2018-11-19T13:45:24+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf261f8e5681b41f8b14ae9"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "admin", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/f1d33a1b691ffb952c8dd24ba163b0e5", 
+    "sendDate" : "2018-11-19T14:10:48+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf26774e5681b41f8b14aeb"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "ทดสอบ", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "admin", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/f1d33a1b691ffb952c8dd24ba163b0e5", 
+    "sendDate" : "2018-11-19T14:34:12+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf26ecbe5681b41f8b14aec"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "test", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "admin", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/f1d33a1b691ffb952c8dd24ba163b0e5", 
+    "sendDate" : "2018-11-19T15:05:31+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf27082e5681b41f8b14aed"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "แจ่มแมว", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "admin", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/f1d33a1b691ffb952c8dd24ba163b0e5", 
+    "sendDate" : "2018-11-19T15:12:50+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf2714fe5681b41f8b14aef"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T15:16:15+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf27257e5681b41f8b14af0"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-19T15:20:39+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf272ece5681b41f8b14af1"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "อีอ้วน", 
+    "sender" : "asd", 
+    "reciver" : "netty", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/3f898852fc47d1056ad8dff84b9006e3", 
+    "sendDate" : "2018-11-19T15:23:08+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf274f9e5681b41f8b14af2"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "ว่าไง", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "admin", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/f1d33a1b691ffb952c8dd24ba163b0e5", 
+    "sendDate" : "2018-11-19T15:31:53+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf27843e5681b41f8b14af3"), 
+    "status" : false, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "ัีdfg", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "admin", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/f1d33a1b691ffb952c8dd24ba163b0e5", 
+    "sendDate" : "2018-11-19T15:45:55+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bfe6fd7e5681b41f8b14af4"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "admin", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/2e334bd519eb67e87931496775e3ad9d", 
+    "sendDate" : "2018-11-28T17:37:11+07:00", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bfe853ee5681b41f8b14af5"), 
+    "status" : true, 
+    "createDate" : ISODate("2018-11-18T13:01:01.611+0000"), 
+    "content" : "สวัสดีครับ ", 
+    "sender" : "NikonIsTheBest", 
+    "reciver" : "asd", 
+    "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5", 
+    "sendDate" : "2018-11-28T19:08:30+07:00", 
+    "__v" : NumberInt(0)
+}

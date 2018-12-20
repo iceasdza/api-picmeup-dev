@@ -13,7 +13,7 @@ const api = require("./routes/api");
 const app = express()
 app.use(cors())
 // const db = mongoose.connect('mongodb://206.189.41.75:27017/finalproject')
-const db = mongoose.connect('mongodb://206.189.41.75:27017/finalproject')
+const db = mongoose.connect('mongodb://localhost:27017/picmeup')
 // app.use(bodyParser.json())
 
 app.use(bodyParser.json({limit: "100mb"}));

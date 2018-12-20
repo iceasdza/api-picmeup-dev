@@ -1,0 +1,165 @@
+{ 
+    "_id" : ObjectId("5bf162a0e5681b41f8b14a7d"), 
+    "tagName" : "สวน", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf162a9e5681b41f8b14a7e"), 
+    "tagName" : "เมือง", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf162c4e5681b41f8b14a80"), 
+    "tagName" : "สไตล์ญี่ปุ่น", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16320e5681b41f8b14a84"), 
+    "tagName" : "สไตล์ยุโรป", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1632ce5681b41f8b14a85"), 
+    "tagName" : "สไตล์จีน", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16340e5681b41f8b14a86"), 
+    "tagName" : "สไตล์เกาหลี", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1638ce5681b41f8b14a8a"), 
+    "tagName" : "สตรีท", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1639ae5681b41f8b14a8c"), 
+    "tagName" : "ยุค90", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf163afe5681b41f8b14a8d"), 
+    "tagName" : "สนามกีฬา", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf163c4e5681b41f8b14a8e"), 
+    "tagName" : "สวนออกกำลังกาย", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf163e1e5681b41f8b14a8f"), 
+    "tagName" : "ดาดฟ้า", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf163e9e5681b41f8b14a90"), 
+    "tagName" : "สระน้ำ", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16431e5681b41f8b14a91"), 
+    "tagName" : "สถานที่่ในล้ม", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16456e5681b41f8b14a92"), 
+    "tagName" : "สถานที่กลางเเจ้ง", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16469e5681b41f8b14a93"), 
+    "tagName" : "คลาสสิค", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1647fe5681b41f8b14a94"), 
+    "tagName" : "โมเดิร์น", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1648ae5681b41f8b14a95"), 
+    "tagName" : "สวนสาธารณะ", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16497e5681b41f8b14a96"), 
+    "tagName" : "สวนดอกไม้", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf164a7e5681b41f8b14a97"), 
+    "tagName" : "ชุมชนเก่า", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf164b9e5681b41f8b14a98"), 
+    "tagName" : "ยานตลาดเก่า", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf164fbe5681b41f8b14a99"), 
+    "tagName" : "วัด", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16514e5681b41f8b14a9a"), 
+    "tagName" : "สถานที่พักผ่อน", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16556e5681b41f8b14a9b"), 
+    "tagName" : "แลนด์มาร์ค", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1656ae5681b41f8b14a9c"), 
+    "tagName" : "ห้างสรรพสินค้า", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16588e5681b41f8b14a9d"), 
+    "tagName" : "รถไฟฟ้า", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1658fe5681b41f8b14a9e"), 
+    "tagName" : "เรือ", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1659ae5681b41f8b14a9f"), 
+    "tagName" : "เดินเล่น", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16885e5681b41f8b14aa0"), 
+    "tagName" : "สะพาน", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16a0de5681b41f8b14aa1"), 
+    "tagName" : "ปั่นจักรยาน", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16a20e5681b41f8b14aa2"), 
+    "tagName" : "วิ่งออกกำลังกาย", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf16bb8e5681b41f8b14aa3"), 
+    "tagName" : "เหมาะจะถ่ายรูป", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1a1bae5681b41f8b14ac5"), 
+    "tagName" : "เทคโนโลยี", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1a264e5681b41f8b14ac8"), 
+    "tagName" : "ดนตรี", 
+    "__v" : NumberInt(0)
+}

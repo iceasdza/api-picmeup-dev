@@ -1,0 +1,157 @@
+{ 
+    "_id" : ObjectId("5bf18137e5681b41f8b14aa9"), 
+    "images" : [
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/77f1d25b552319dc87becfd90c216caa", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/1d8eaed0e448e12135d22434d20e2b93", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/da4b5a27c814e37d74d3c0d82ccf7d95", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/7f446e114073deda533496ed4f6af04f", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/048a8f3017e86ab126eae1ded0c7d40f"
+    ], 
+    "comments" : [
+
+    ], 
+    "albumName" : "ดอกไม้แสนสวย", 
+    "albumDes" : "ดอกไม้นานาพันธุ์ และความสวยงามของธรรมชาติ อยากให้มาชมกันครับ", 
+    "albumOwner" : "NikonIsTheBest", 
+    "createDate" : ISODate("2018-11-18T15:11:51.763+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf181aee5681b41f8b14aab"), 
+    "images" : [
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/af790af9b5ccdb50249dc6f93f3c400a", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/eeddc1195b0ba7adc7bdacfd7ffa2640", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/19e31f186e72c56726499a3483b40822"
+    ], 
+    "comments" : [
+        {
+            "comment" : "สวยมาก", 
+            "commentator" : "Guest", 
+            "avatar" : "https://image.freepik.com/free-icon/male-user-shadow_318-34042.jpg"
+        }
+    ], 
+    "albumName" : "วิวจากสถานที่ต่างๆในมจธ.", 
+    "albumDes" : "วิวตามสถานที่แล้วเวลาที่แตกต่างกัน ทำให้ได้ภาพที่สวยงามแบบนี้มาครับ ", 
+    "albumOwner" : "NikonIsTheBest", 
+    "createDate" : ISODate("2018-11-18T15:13:50.190+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf18235e5681b41f8b14aad"), 
+    "images" : [
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/88a2a2a0b370489551af58d713dca9a1", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/a34973658e7b42bf2f87d4a1c95bad08"
+    ], 
+    "comments" : [
+        {
+            "comment" : "สวยค่ะ ชอบ ", 
+            "commentator" : "Guest", 
+            "avatar" : "https://image.freepik.com/free-icon/male-user-shadow_318-34042.jpg"
+        }, 
+        {
+            "comment" : "แอดชอบมากกกกกกกกกกกกกกกก", 
+            "commentator" : "admin", 
+            "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/335bc7aa5bb96af592ab1aaca62e3043"
+        }, 
+        {
+            "comment" : "สวัสดี", 
+            "commentator" : "asd", 
+            "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5"
+        }, 
+        {
+            "comment" : "อิสัส้ ", 
+            "commentator" : "asd", 
+            "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/42a52435aec9483480d420432696f9e5"
+        }
+    ], 
+    "albumName" : "รูปถ่ายตึกยามค่ำคืน", 
+    "albumDes" : "ทดลองแบบสปีดชัตเตอร์นานๆดู ภาพสวยดีครับบ", 
+    "albumOwner" : "NikonIsTheBest", 
+    "createDate" : ISODate("2018-11-18T15:16:05.124+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf182dee5681b41f8b14aaf"), 
+    "images" : [
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/488a82ffafbfc31fc8ede6e662e20cd9", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/e45cb264a5725c712816a6ae13ff1f4f", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/0646a7060153dbc1e846b86e52da8e72", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/b38fec6d53fbe98151b653a3199bd2a3"
+    ], 
+    "comments" : [
+
+    ], 
+    "albumName" : "ถ่ายเล่นๆเรื่อยๆ ", 
+    "albumDes" : "ลองถ่ายดชเรื่อยๆจ้าา", 
+    "albumOwner" : "NikonIsTheBest", 
+    "createDate" : ISODate("2018-11-18T15:18:54.966+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf1879ee5681b41f8b14ab6"), 
+    "images" : [
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/9ec8ba244eccd6ae3f3babea917731e0", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/d825204268336eab3f9a171dee1f0fb8", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/96f43b67380e3d466f2c6c457a225837", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/c8853e541f5905d081537b126742ee40", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/178c66ffa614030545804f738987bbf5", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/200f26bc9d5b71ec41ffd3e09ed866e0", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/f5868d9ebe6183a5714c91040f3027ab", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/69933de30370d76510d6d671f6241d60", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/513ab5cf5b0f741903ab166e82d3250d", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/24dbb81068fdd35bbe79be2f3fe775ae"
+    ], 
+    "comments" : [
+        {
+            "comment" : "งู้ยยยยยยยยยยย", 
+            "commentator" : "NikonIsTheBest", 
+            "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/2e334bd519eb67e87931496775e3ad9d"
+        }
+    ], 
+    "albumName" : "วัยใส", 
+    "albumDes" : "รูปนี้ถ่ายที่ช่องนนทรีตอนเย็นๆครับ", 
+    "albumOwner" : "bas", 
+    "createDate" : ISODate("2018-11-18T15:39:10.149+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf22c2de5681b41f8b14ad3"), 
+    "images" : [
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/3e2be8c0b153be159f0e06f182d2d2e5", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/c2ad095fbdf917e8574fd45d99e90e00", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/8bf92646e1353f5a5d4f4af0b0bc780d", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/5e04acda11571c4b324e54d9b2d18e0b", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/bd7fd85fbf840a3785520d460a7903b9", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/a66743066cda48b464f5879066abd399", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/8c3cebe6f61eac50b41913f146ea2045"
+    ], 
+    "comments" : [
+        {
+            "comment" : "ทำไมเรายังไม่วาปปปปปปปปปปปปปปปปปปปป", 
+            "commentator" : "NikonIsTheBest", 
+            "avatar" : "https://picmeup.sgp1.digitaloceanspaces.com/avatar/2e334bd519eb67e87931496775e3ad9d"
+        }
+    ], 
+    "albumName" : "สยามฟ้าโปร่ง", 
+    "albumDes" : "สนามในวันอากาศดี", 
+    "albumOwner" : "bas", 
+    "createDate" : ISODate("2018-11-19T03:21:17.427+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5bf266f7e5681b41f8b14aea"), 
+    "images" : [
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/6388a5ed8e2609ebf5f442281f501e65", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/e16671970837a19a6832a99fd39753d3", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/79e3e47a377b97eb2c18533465d68fe2", 
+        "https://picmeup.sgp1.digitaloceanspaces.com/album/5c8520707dd67f5655c6c569e085db19"
+    ], 
+    "comments" : [
+
+    ], 
+    "albumName" : "ทดสอบ", 
+    "albumDes" : "ทดสอบ", 
+    "albumOwner" : "admin", 
+    "createDate" : ISODate("2018-11-19T07:32:07.056+0000"), 
+    "__v" : NumberInt(0)
+}
